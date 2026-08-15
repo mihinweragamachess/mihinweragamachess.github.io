@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mihin Mindula Weragama | Chess</title>
+
+    <meta name="description"
+        content="Official chess website of Mihin Mindula Weragama, Arena International Master and international rated chess player from Sri Lanka.">
+
+    <meta name="author" content="Mihin Mindula Weragama">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, Arial, Helvetica, sans-serif;
+            background: #070707;
+            color: #f5f5f5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 22px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+
+            background: rgba(7, 7, 7, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .brand {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #999;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+
+            padding: 150px 9% 100px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(255, 255, 255, 0.08),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 15% 80%,
+                    rgba(255, 255, 255, 0.045),
+                    transparent 35%
+                ),
+                #070707;
+        }
+
+        .hero::before {
+            content: "♞";
+            position: absolute;
+
+            right: 5%;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 420px;
+            line-height: 1;
+
+            color: rgba(255,255,255,0.025);
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+        }
+
+        .eyebrow {
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 12px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 105px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .hero-description {
+            max-width: 690px;
+
+            font-size: clamp(17px, 2vw, 21px);
+
+            color: #999;
+
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 14px 25px;
+
+            border: 1px solid #444;
+            border-radius: 30px;
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            padding: 120px 9%;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .section-label {
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 11px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 60px);
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 45px;
+        }
+
+        .section-text {
+            max-width: 850px;
+            color: #999;
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           ACHIEVEMENT CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 20px;
+        }
+
+        .card {
+            padding: 32px;
+
+            min-height: 190px;
+
+            border: 1px solid #222;
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #111111,
+                    #0b0b0b
+                );
+
+            transition: all 0.35s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #555;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .card-number {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #888;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           NOTABLE VICTORIES
+        ========================= */
+
+        .victory {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 25px 0;
+
+            border-bottom: 1px solid #222;
+
+            gap: 20px;
+        }
+
+        .victory:last-child {
+            border-bottom: none;
+        }
+
+        .victory-name {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .victory-description {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .game-link {
+            color: #aaa;
+            text-decoration: none;
+
+            padding: 9px 16px;
+
+            border: 1px solid #333;
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            white-space: nowrap;
+
+            transition: 0.3s;
+        }
+
+        .game-link:hover {
+            color: #000;
+            background: #fff;
+            border-color: #fff;
+        }
+
+
+        /* =========================
+           ONLINE CHESS
+        ========================= */
+
+        .profiles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .profile {
+            text-decoration: none;
+            color: #ddd;
+
+            padding: 14px 22px;
+
+            border: 1px solid #292929;
+            border-radius: 30px;
+
+            transition: 0.3s ease;
+        }
+
+        .profile:hover {
+            background: #fff;
+            color: #000;
+            border-color: #fff;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education-box {
+            max-width: 850px;
+
+            padding: 35px;
+
+            border-radius: 20px;
+            border: 1px solid #222;
+
+            background: #0d0d0d;
+        }
+
+        .education-box h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .education-box p {
+            color: #888;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 45px 9%;
+
+            border-top: 1px solid #222;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            color: #666;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            nav {
+                padding: 18px 6%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 140px 7% 90px;
+            }
+
+            .hero::before {
+                font-size: 260px;
+                right: -40px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            section {
+                padding: 90px 7%;
+            }
+
+            .victory {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="brand">
+            MWC
+        </div>
+
+        <div class="nav-links">
+
+            <a href="#about">About</a>
+
+            <a href="#achievements">
+                Achievements
+            </a>
+
+            <a href="#victories">
+                Victories
+            </a>
+
+            <a href="#online">
+                Online
+            </a>
+
+            <a href="#education">
+                Education
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                Arena International Master · International Rated Chess Player · Sri Lanka
+            </div>
+
+            <h1>
+                MIHIN MINDULA<br>
+                WERAGAMA
+            </h1>
+
+            <p class="hero-description">
+
+                Competitive chess player from Sri Lanka,
+                documenting a journey of competition,
+                achievement, memorable victories and
+                continuous improvement.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#achievements"
+                    class="button"
+                >
+                    Explore my chess journey
+                </a>
+
+                <a
+                    href="#online"
+                    class="button"
+                >
+                    Chess Profiles
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about">
+
+        <div class="section-label">
+            01 · About
+        </div>
+
+        <h2 class="section-title">
+            The journey
+        </h2>
+
+        <p class="section-text">
+
+            I am an international rated chess player from
+            Sri Lanka and an Arena International Master.
+
+            <br><br>
+
+            Chess has been a major part of my journey,
+            from competitive online play to over-the-board
+            competition and memorable games against strong
+            titled players.
+
+            <br><br>
+
+            This website documents my chess career,
+            achievements, notable victories, rankings,
+            tournaments and online chess journey.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         ACHIEVEMENTS
+    ========================= -->
+
+    <section id="achievements">
+
+        <div class="section-label">
+            02 · Career
+        </div>
+
+        <h2 class="section-title">
+            Achievements
+        </h2>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="card-number">
+                    01
+                </div>
+
+                <h3>
+                    Arena International Master
+                </h3>
+
+                <p>
+                    FIDE Online Arena title.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-number">
+                    02
+                </div>
+
+                <h3>
+                    National Ranking
+                </h3>
+
+                <p>
+                    Highest national ranking achieved
+                    on FIDE Online Arena.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-number">
+                    03
+                </div>
+
+                <h3>
+                    Titled Victories
+                </h3>
+
+                <p>
+                    Memorable victories against strong
+                    titled chess players.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-number">
+                    04
+                </div>
+
+                <h3>
+                    Competitive Chess
+                </h3>
+
+                <p>
+                    Experience across online and
+                    over-the-board competition.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         NOTABLE VICTORIES
+    ========================= -->
+
+    <section id="victories">
+
+        <div class="section-label">
+            03 · Games
+        </div>
+
+        <h2 class="section-title">
+            Notable Victories
+        </h2>
+
+
+        <div class="victory">
+
+            <div>
+
+                <div class="victory-name">
+                    Victory vs Grandmaster
+                </div>
+
+                <div class="victory-description">
+                    One of my most memorable victories
+                    against a Grandmaster.
+                </div>
+
+            </div>
+
+            <a
+                href="#"
+                class="game-link"
+            >
+                View Game
+            </a>
+
+        </div>
+
+
+        <div class="victory">
+
+            <div>
+
+                <div class="victory-name">
+                    Victory vs Titled Player
+                </div>
+
+                <div class="victory-description">
+                    A notable game from my competitive
+                    chess journey.
+                </div>
+
+            </div>
+
+            <a
+                href="#"
+                class="game-link"
+            >
+                View Game
+            </a>
+
+        </div>
+
+
+        <div class="victory">
+
+            <div>
+
+                <div class="victory-name">
+                    More Notable Games
+                </div>
+
+                <div class="victory-description">
+                    More important victories will be
+                    added here.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ONLINE CHESS
+    ========================= -->
+
+    <section id="online">
+
+        <div class="section-label">
+            04 · Online Chess
+        </div>
+
+        <h2 class="section-title">
+            Chess Profiles
+        </h2>
+
+        <p class="section-text">
+
+            Explore my games, ratings, rankings and
+            competitive history across my chess platforms.
+
+        </p>
+
+        <br><br>
+
+
+        <div class="profiles">
+
+            <a
+                href="#"
+                class="profile"
+                target="_blank"
+            >
+                Lichess
+            </a>
+
+
+            <a
+                href="#"
+                class="profile"
+                target="_blank"
+            >
+                FIDE
+            </a>
+
+
+            <a
+                href="#"
+                class="profile"
+                target="_blank"
+            >
+                World Chess
+            </a>
+
+
+            <a
+                href="#"
+                class="profile"
+                target="_blank"
+            >
+                FIDE Online Arena
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         EDUCATION
+    ========================= -->
+
+    <section id="education">
+
+        <div class="section-label">
+            05 · Education
+        </div>
+
+        <h2 class="section-title">
+            Beyond the board
+        </h2>
+
+
+        <div class="education-box">
+
+            <h3>
+                Education
+            </h3>
+
+            <p>
+                My academic journey and educational
+                background will be added here.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div>
+            © 2026 Mihin Mindula Weragama
+        </div>
+
+        <div>
+            MIHIN WERAGAMA CHESS
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
