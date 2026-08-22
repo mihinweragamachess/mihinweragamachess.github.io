@@ -1,1368 +1,2437 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mihin Mindula Weragama | Chess</title>
-
-    <meta name="description"
-        content="Official chess website of Mihin Mindula Weragama, Arena International Master and international rated chess player from Sri Lanka.">
-
-    <meta name="author" content="Mihin Mindula Weragama">
-
-    <style>
-
-        /* =========================
-           GLOBAL
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --text: #171717;
-            --muted: #5f5f5f;
-            --light-muted: #888888;
-            --border: rgba(20,20,20,0.10);
-            --surface: rgba(255,255,255,0.72);
-            --aim: #7a0000;
-        }
-
-        body {
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "SF Pro Display",
-                "SF Pro Text",
-                "Helvetica Neue",
-                Arial,
-                sans-serif;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
+<title>AIM Mihin Mindula Weragama | Chess Portfolio</title>
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #fafafa 0%,
-                    #e8e8e8 28%,
-                    #cfcfcf 55%,
-                    #eeeeee 78%,
-                    #fafafa 100%
-                );
-        }
+<meta name="description"
+      content="AIM Mihin Mindula Weragama — chess career, notable victories, titled-player victories and chess profiles.">
 
+<style>
 
-        /* =========================
-           CHESSBOARD BACKGROUND
-        ========================= */
+/* =========================================================
+   GLOBAL VARIABLES
+========================================================= */
 
-        body::before {
-            content: "";
+:root {
+    --bg: #f2f3f5;
+    --bg-secondary: #e6e8eb;
 
-            position: fixed;
-            inset: 0;
+    --card: rgba(255,255,255,0.88);
+    --card-solid: #ffffff;
 
-            background-image:
-                linear-gradient(
-                    45deg,
-                    rgba(0,0,0,0.025) 25%,
-                    transparent 25%,
-                    transparent 75%,
-                    rgba(0,0,0,0.025) 75%
-                ),
-                linear-gradient(
-                    45deg,
-                    rgba(0,0,0,0.025) 25%,
-                    transparent 25%,
-                    transparent 75%,
-                    rgba(0,0,0,0.025) 75%
-                );
+    --text: #34373b;
+    --text-light: #687078;
 
-            background-position:
-                0 0,
-                40px 40px;
+    --maroon: #761f2d;
+    --maroon-dark: #55151f;
 
-            background-size: 80px 80px;
+    --border: rgba(50,50,50,0.12);
 
-            pointer-events: none;
-            z-index: -2;
-        }
+    --shadow:
+        0 15px 40px rgba(30,30,30,0.10);
 
+    --nav-bg: rgba(255,255,255,0.88);
+}
 
-        /* =========================
-           BACKGROUND CHESS PIECE
-        ========================= */
+body.dark {
 
-        body::after {
-            content: "♞";
+    --bg: #111315;
+    --bg-secondary: #181b1e;
 
-            position: fixed;
+    --card: rgba(28,31,34,0.94);
+    --card-solid: #1c1f22;
 
-            right: -100px;
-            bottom: -120px;
+    --text: #eeeeef;
+    --text-light: #aeb4ba;
 
-            font-size: 520px;
-            line-height: 1;
+    --maroon: #c05264;
+    --maroon-dark: #9e3d4e;
 
-            color: rgba(0,0,0,0.025);
+    --border: rgba(255,255,255,0.10);
 
-            pointer-events: none;
-            z-index: -1;
-        }
+    --shadow:
+        0 18px 45px rgba(0,0,0,0.35);
 
+    --nav-bg: rgba(20,23,25,0.90);
+}
 
-        /* =========================
-           NAVIGATION
-        ========================= */
 
-        nav {
-            position: fixed;
+/* =========================================================
+   RESET
+========================================================= */
 
-            top: 0;
-            left: 0;
+* {
+    box-sizing: border-box;
+}
 
-            width: 100%;
+html {
+    scroll-behavior: smooth;
+}
 
-            padding: 18px 6%;
+body {
+    margin: 0;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 
-            z-index: 1000;
+    color: var(--text);
 
-            background: rgba(250,250,250,0.76);
+    background:
+        linear-gradient(
+            135deg,
+            var(--bg),
+            var(--bg-secondary)
+        );
 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+    transition:
+        background 0.35s ease,
+        color 0.35s ease;
 
-            border-bottom: 1px solid var(--border);
-        }
+    overflow-x: hidden;
+}
 
 
-        .brand {
-            display: flex;
-            align-items: center;
+/* =========================================================
+   CHESS BOARD BACKGROUND
+========================================================= */
 
-            min-height: 42px;
-        }
+body::before {
 
+    content: "";
 
-        .brand-logo {
-            width: 46px;
-            height: 46px;
+    position: fixed;
 
-            object-fit: contain;
+    inset: 0;
 
-            display: block;
-        }
+    z-index: -5;
 
+    opacity: 0.22;
 
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            align-items: center;
-        }
+    background-image:
 
+        linear-gradient(
+            45deg,
+            #aeb3b8 25%,
+            transparent 25%
+        ),
 
-        .nav-links a {
-            color: #5f5f5f;
+        linear-gradient(
+            -45deg,
+            #aeb3b8 25%,
+            transparent 25%
+        ),
 
-            text-decoration: none;
+        linear-gradient(
+            45deg,
+            transparent 75%,
+            #aeb3b8 75%
+        ),
 
-            font-size: 13px;
+        linear-gradient(
+            -45deg,
+            transparent 75%,
+            #aeb3b8 75%
+        );
 
-            letter-spacing: 0.4px;
+    background-size: 100px 100px;
 
-            transition: color 0.3s ease;
-        }
+    background-position:
+        0 0,
+        0 50px,
+        50px -50px,
+        -50px 0;
+}
 
+body.dark::before {
+    opacity: 0.08;
+    filter: invert(1);
+}
 
-        .nav-links a:hover {
-            color: #111111;
-        }
 
+/* Soft white overlay */
 
-        /* =========================
-           HERO
-        ========================= */
+body::after {
 
-        .hero {
-            min-height: 100vh;
+    content: "";
 
-            display: flex;
-            align-items: center;
+    position: fixed;
 
-            padding: 160px 9% 110px;
+    inset: 0;
 
-            position: relative;
-            overflow: hidden;
+    z-index: -4;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,255,255,0.52),
-                    rgba(190,190,190,0.28),
-                    rgba(255,255,255,0.42)
-                );
-        }
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(255,255,255,0.8),
+            transparent 40%
+        );
 
+    pointer-events: none;
+}
 
-        .hero::before {
-            content: "♟";
 
-            position: absolute;
+/* =========================================================
+   CONTAINER
+========================================================= */
 
-            right: 6%;
-            top: 50%;
+.container {
 
-            transform: translateY(-50%);
+    width: min(1180px, 92%);
 
-            font-size: 430px;
-            line-height: 1;
+    margin: auto;
+}
 
-            color: rgba(0,0,0,0.035);
 
-            pointer-events: none;
-        }
+/* =========================================================
+   HEADER
+========================================================= */
 
+header {
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
+    position: sticky;
 
-            width: 100%;
-            max-width: 1250px;
-        }
+    top: 0;
 
+    z-index: 1000;
 
-        /* =========================
-           HERO EYEBROW
-        ========================= */
+    background: var(--nav-bg);
 
-        .eyebrow {
-            color: #686868;
+    backdrop-filter: blur(18px);
 
-            text-transform: uppercase;
+    border-bottom:
+        1px solid var(--border);
+}
 
-            letter-spacing: 4px;
+.navbar {
 
-            font-size: 11px;
+    min-height: 78px;
 
-            margin-bottom: 25px;
+    display: flex;
 
-            font-weight: 600;
-        }
+    align-items: center;
 
+    justify-content: space-between;
 
-        /* =========================
-           HERO NAME
-        ========================= */
+    gap: 20px;
+}
 
-        .hero h1 {
-            font-size:
-                clamp(36px, 5.5vw, 78px);
 
-            line-height: 1;
+/* Logo */
 
-            letter-spacing: -5px;
+.main-logo {
 
-            font-weight: 700;
+    width: 58px;
 
-            margin-bottom: 30px;
+    height: 58px;
 
-            white-space: nowrap;
-        }
+    object-fit: contain;
 
+    border-radius: 14px;
 
-        .aim {
-            color: var(--aim);
+    border:
+        2px solid var(--maroon);
 
-            font-weight: 800;
+    background: var(--card-solid);
 
-            letter-spacing: -3px;
+    padding: 5px;
+}
 
-            margin-right: 18px;
-        }
 
+/* Navigation */
 
-        .hero-description {
-            max-width: 690px;
+.navigation {
 
-            font-size:
-                clamp(17px, 2vw, 21px);
+    display: flex;
 
-            color: var(--muted);
+    align-items: center;
 
-            margin-bottom: 40px;
-        }
+    justify-content: flex-end;
 
+    gap: 8px;
 
-        /* =========================
-           HERO BUTTONS
-        ========================= */
+    flex-wrap: wrap;
+}
 
-        .hero-buttons {
-            display: flex;
+.nav-button {
 
-            flex-wrap: wrap;
+    border:
+        1px solid var(--border);
 
-            gap: 14px;
-        }
+    background: var(--card);
 
+    color: var(--text);
 
-        .button {
-            display: inline-block;
+    padding:
+        10px 15px;
 
-            padding: 14px 25px;
+    border-radius: 999px;
 
-            border: 1px solid #333333;
+    font-weight: 700;
 
-            border-radius: 30px;
+    font-size: 13px;
 
-            color: #222222;
+    text-decoration: none;
 
-            background:
-                rgba(255,255,255,0.35);
+    cursor: pointer;
 
-            text-decoration: none;
+    transition: 0.2s;
+}
 
-            font-size: 14px;
+.nav-button:hover {
 
-            transition: all 0.3s ease;
-        }
+    color: var(--maroon);
 
+    border-color: var(--maroon);
 
-        .button:hover {
-            background: #171717;
+    transform:
+        translateY(-2px);
+}
 
-            color: #ffffff;
 
-            border-color: #171717;
+/* =========================================================
+   HERO / INTRODUCTION
+========================================================= */
 
-            transform: translateY(-2px);
-        }
+.hero {
 
+    padding:
+        100px 0
+        75px;
+}
 
-        /* =========================
-           GENERAL SECTIONS
-        ========================= */
+.hero-grid {
 
-        section {
-            padding: 120px 9%;
+    display: grid;
 
-            border-top:
-                1px solid var(--border);
+    grid-template-columns:
+        1.1fr
+        0.9fr;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,255,255,0.24),
-                    rgba(210,210,210,0.16),
-                    rgba(255,255,255,0.20)
-                );
-        }
+    gap: 65px;
 
+    align-items: center;
+}
 
-        .section-label {
-            color: #888888;
 
-            text-transform: uppercase;
+/* Left */
 
-            letter-spacing: 4px;
+.hero-label {
 
-            font-size: 11px;
+    color: var(--maroon);
 
-            margin-bottom: 15px;
+    font-size: 13px;
 
-            font-weight: 600;
-        }
+    font-weight: 900;
 
+    letter-spacing:
+        0.16em;
 
-        .section-title {
-            font-size:
-                clamp(36px, 5vw, 60px);
+    text-transform:
+        uppercase;
+}
 
-            letter-spacing: -2.5px;
+.hero h1 {
 
-            line-height: 1;
+    margin:
+        15px 0
+        25px;
 
-            margin-bottom: 45px;
-        }
+    font-size:
+        clamp(
+            42px,
+            6vw,
+            76px
+        );
 
+    line-height:
+        0.98;
 
-        .section-text {
-            max-width: 850px;
+    letter-spacing:
+        -0.05em;
+}
 
-            color: var(--muted);
+.hero-title {
 
-            font-size: 18px;
-        }
+    color: var(--maroon);
+}
 
+.hero-name {
 
-        /* =========================
-           ACHIEVEMENT CARDS
-        ========================= */
+    color: var(--text);
+}
 
-        .cards {
-            display: grid;
+.hero-question {
 
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(230px, 1fr)
-                );
+    font-size: 22px;
 
-            gap: 20px;
-        }
+    font-weight: 800;
 
+    margin-top: 35px;
 
-        .card {
-            padding: 32px;
+    margin-bottom: 10px;
+}
 
-            min-height: 190px;
+.hero-text {
 
-            border:
-                1px solid var(--border);
+    max-width: 650px;
 
-            border-radius: 20px;
+    color: var(--text-light);
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.88),
-                    rgba(225,225,225,0.62)
-                );
+    font-size: 17px;
 
-            box-shadow:
-                0 10px 30px
-                rgba(0,0,0,0.035);
+    line-height: 1.85;
+}
 
-            transition: all 0.35s ease;
-        }
 
+/* Hero image */
 
-        .card:hover {
-            transform: translateY(-7px);
+.hero-photo {
 
-            border-color:
-                rgba(0,0,0,0.22);
+    height: 500px;
 
-            box-shadow:
-                0 20px 50px
-                rgba(0,0,0,0.08);
-        }
+    border-radius: 30px;
 
+    overflow: hidden;
 
-        .card-number {
-            color: #999999;
+    background: var(--card);
 
-            font-size: 13px;
+    border:
+        1px solid var(--border);
 
-            margin-bottom: 25px;
-        }
+    box-shadow:
+        var(--shadow);
 
+    position: relative;
+}
 
-        .card h3 {
-            font-size: 22px;
+.hero-photo img {
 
-            margin-bottom: 12px;
-        }
+    width: 100%;
 
+    height: 100%;
 
-        .card p {
-            color: #777777;
+    object-fit: cover;
+}
 
-            font-size: 15px;
-        }
+.image-placeholder {
 
+    height: 100%;
 
-        /* =========================
-           VICTORIES
-        ========================= */
+    display: flex;
 
-        .victories-header {
-            display: flex;
+    align-items: center;
 
-            justify-content: space-between;
+    justify-content: center;
 
-            align-items: flex-end;
+    text-align: center;
 
-            gap: 30px;
+    color: var(--text-light);
 
-            margin-bottom: 40px;
-        }
+    padding: 30px;
+}
 
 
-        .victory-count {
-            text-align: right;
-        }
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
 
+section {
 
-        .victory-count-number {
-            font-size: 46px;
+    padding:
+        80px 0;
+}
 
-            line-height: 1;
+.section-top {
 
-            font-weight: 700;
-        }
+    display: flex;
 
+    justify-content:
+        space-between;
 
-        .victory-count-label {
-            color: #888888;
+    align-items:
+        flex-end;
 
-            font-size: 12px;
+    gap: 25px;
 
-            text-transform: uppercase;
+    margin-bottom: 35px;
+}
 
-            letter-spacing: 2px;
-        }
+.section-label {
 
+    color: var(--maroon);
 
-        .victory-search {
-            width: 100%;
+    font-size: 12px;
 
-            padding: 17px 20px;
+    font-weight: 900;
 
-            margin-bottom: 30px;
+    letter-spacing:
+        0.15em;
 
-            border-radius: 14px;
+    text-transform:
+        uppercase;
+}
 
-            border:
-                1px solid var(--border);
+h2 {
 
-            background:
-                rgba(255,255,255,0.70);
+    margin:
+        7px 0 0;
 
-            color: var(--text);
+    font-size:
+        clamp(
+            32px,
+            4vw,
+            52px
+        );
 
-            font-family: inherit;
+    letter-spacing:
+        -0.04em;
+}
 
-            font-size: 15px;
+.section-description {
 
-            outline: none;
+    max-width: 650px;
 
-            transition: 0.3s ease;
-        }
+    color: var(--text-light);
 
+    line-height: 1.7;
+}
 
-        .victory-search:focus {
-            border-color:
-                rgba(0,0,0,0.30);
 
-            background: #ffffff;
-        }
+/* =========================================================
+   FEATURED VICTORIES
+========================================================= */
 
+.featured-victories {
 
-        .victories-list {
-            border-top:
-                1px solid var(--border);
-        }
+    display: grid;
 
+    grid-template-columns:
+        repeat(2, 1fr);
 
-        .victory {
-            display: flex;
+    gap: 20px;
+}
 
-            justify-content: space-between;
+.featured-card {
 
-            align-items: center;
+    background: var(--card);
 
-            padding: 23px 0;
+    border:
+        1px solid var(--border);
 
-            border-bottom:
-                1px solid var(--border);
+    border-radius: 25px;
 
-            gap: 20px;
-        }
+    padding: 28px;
 
+    box-shadow:
+        var(--shadow);
 
-        .victory-name {
-            font-size: 19px;
+    display: flex;
 
-            font-weight: 600;
-        }
+    align-items: center;
 
+    gap: 20px;
 
-        .victory-description {
-            color: #888888;
+    transition:
+        transform 0.25s ease;
+}
 
-            font-size: 14px;
-        }
+.featured-card:hover {
 
+    transform:
+        translateY(-5px);
+}
 
-        .game-link {
-            color: #555555;
+.featured-badge {
 
-            text-decoration: none;
+    width: 68px;
 
-            padding: 9px 16px;
+    height: 68px;
 
-            border:
-                1px solid #cccccc;
+    flex-shrink: 0;
 
-            border-radius: 20px;
+    display: grid;
 
-            font-size: 13px;
+    place-items: center;
 
-            white-space: nowrap;
+    border-radius: 20px;
 
-            transition: 0.3s;
-        }
+    background:
+        rgba(118,31,45,0.10);
 
+    color: var(--maroon);
 
-        .game-link:hover {
-            color: #ffffff;
+    font-size: 20px;
 
-            background: #171717;
+    font-weight: 950;
+}
 
-            border-color: #171717;
-        }
+.featured-card h3 {
 
+    margin:
+        0 0 5px;
 
-        .victories-note {
-            margin-top: 30px;
+    font-size: 20px;
+}
 
-            color: #888888;
+.featured-card p {
 
-            font-size: 14px;
-        }
+    margin: 0;
 
+    color: var(--text-light);
+}
 
-        /* =========================
-           ONLINE CHESS
-        ========================= */
 
-        .profiles {
-            display: flex;
+/* =========================================================
+   SUBSECTIONS
+========================================================= */
 
-            flex-wrap: wrap;
+.subsection {
 
-            gap: 14px;
-        }
+    margin-top: 65px;
+}
 
+.subsection-heading {
 
-        .profile {
-            text-decoration: none;
+    display: flex;
 
-            color: #333333;
+    align-items: center;
 
-            padding: 14px 22px;
+    justify-content:
+        space-between;
 
-            border:
-                1px solid #cccccc;
+    gap: 20px;
 
-            border-radius: 30px;
+    margin-bottom: 20px;
+}
 
-            background:
-                rgba(255,255,255,0.45);
+.subsection-heading h3 {
 
-            transition: 0.3s ease;
-        }
+    margin: 0;
 
+    font-size: 25px;
+}
 
-        .profile:hover {
-            background: #171717;
 
-            color: #ffffff;
+/* =========================================================
+   FILTER
+========================================================= */
 
-            border-color: #171717;
+.filter-area {
 
-            transform: translateY(-2px);
-        }
+    display: flex;
 
+    align-items: center;
 
-        /* =========================
-           FOOTER
-        ========================= */
+    gap: 10px;
+}
 
-        footer {
-            padding: 45px 9%;
+.filter-area label {
 
-            border-top:
-                1px solid var(--border);
+    font-size: 13px;
 
-            display: flex;
+    font-weight: 800;
 
-            justify-content:
-                space-between;
+    color: var(--text-light);
+}
 
-            gap: 20px;
+select {
 
-            color: #888888;
+    background:
+        var(--card-solid);
 
-            font-size: 13px;
+    color:
+        var(--text);
 
-            background:
-                rgba(255,255,255,0.30);
-        }
+    border:
+        1px solid var(--border);
 
+    border-radius: 12px;
 
-        /* =========================
-           MOBILE
-        ========================= */
+    padding:
+        10px 13px;
 
-        @media (max-width: 900px) {
+    font-weight: 700;
 
-            .hero h1 {
-                font-size:
-                    clamp(34px, 5.5vw, 62px);
+    outline: none;
 
-                letter-spacing: -3px;
-            }
+    cursor: pointer;
+}
 
-            .aim {
-                letter-spacing: -2px;
 
-                margin-right: 12px;
-            }
+/* =========================================================
+   VICTORY CARDS
+========================================================= */
 
-        }
+/*
+   IMPORTANT:
+   These are NOT tables.
 
+   Each victory is an individual card.
+*/
 
-        @media (max-width: 750px) {
+.victory-list {
 
-            nav {
-                padding: 16px 6%;
-            }
+    display: grid;
 
+    gap: 10px;
+}
 
-            .brand-logo {
-                width: 40px;
+.victory-card {
 
-                height: 40px;
-            }
+    display: grid;
 
+    grid-template-columns:
+        65px
+        minmax(180px, 1fr)
+        100px
+        100px
+        130px;
 
-            .nav-links {
-                display: none;
-            }
+    align-items: center;
 
+    gap: 15px;
 
-            .hero {
-                padding:
-                    140px 7% 90px;
-            }
+    padding:
+        16px 18px;
 
+    background:
+        var(--card);
 
-            .hero::before {
-                font-size: 260px;
+    border:
+        1px solid var(--border);
 
-                right: -40px;
-            }
+    border-radius: 17px;
 
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.035);
 
-            .hero h1 {
-                font-size:
-                    clamp(30px, 8vw, 55px);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
 
-                letter-spacing: -2px;
+.victory-card:hover {
 
-                white-space: normal;
-            }
+    transform:
+        translateY(-2px);
 
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.08);
+}
 
-            .aim {
-                letter-spacing: -1px;
 
-                margin-right: 8px;
-            }
+/* Title */
 
+.player-title {
 
-            section {
-                padding:
-                    90px 7%;
-            }
+    color:
+        var(--maroon);
 
+    font-weight:
+        950;
+}
 
-            .victories-header {
-                align-items:
-                    flex-start;
 
-                flex-direction:
-                    column;
-            }
+/* Player */
 
+.player-name {
 
-            .victory-count {
-                text-align: left;
-            }
+    font-weight:
+        800;
+}
 
 
-            .victory {
-                align-items:
-                    flex-start;
+/* Country */
 
-                flex-direction:
-                    column;
-            }
+.player-country {
 
+    font-weight:
+        800;
 
-            footer {
-                flex-direction:
-                    column;
-            }
+    font-size:
+        14px;
+}
 
-        }
 
-    </style>
+/* Rating */
+
+.player-rating {
+
+    font-weight:
+        900;
+}
+
+
+/* Watch button */
+
+.watch-game {
+
+    display: inline-block;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    background:
+        var(--maroon);
+
+    color:
+        white;
+
+    padding:
+        9px 12px;
+
+    border-radius:
+        10px;
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+    transition:
+        0.2s;
+}
+
+.watch-game:hover {
+
+    background:
+        var(--maroon-dark);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   MOBILE CARD LABELS
+========================================================= */
+
+.card-label {
+
+    display: none;
+
+    color: var(--text-light);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   SEE MORE
+========================================================= */
+
+.see-more-container {
+
+    text-align: center;
+
+    margin-top: 22px;
+}
+
+.see-more {
+
+    border:
+        1px solid var(--maroon);
+
+    background:
+        transparent;
+
+    color:
+        var(--maroon);
+
+    border-radius:
+        12px;
+
+    padding:
+        11px 22px;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.2s;
+}
+
+.see-more:hover {
+
+    background:
+        var(--maroon);
+
+    color:
+        white;
+}
+
+
+/* =========================================================
+   DESCRIPTION + LOGO
+========================================================= */
+
+.description-logo {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        0.8fr;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        25px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.description-content {
+
+    padding:
+        45px;
+}
+
+.description-content h3 {
+
+    margin-top:
+        8px;
+}
+
+.description-content p {
+
+    color:
+        var(--text-light);
+
+    line-height:
+        1.8;
+}
+
+.description-image {
+
+    min-height:
+        270px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    padding:
+        35px;
+
+    background:
+        rgba(118,31,45,0.05);
+}
+
+.description-image img {
+
+    max-width:
+        220px;
+
+    max-height:
+        220px;
+
+    object-fit:
+        contain;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.summary-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        15px;
+}
+
+.summary-card {
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        20px;
+
+    padding:
+        25px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.05);
+}
+
+.summary-title {
+
+    color:
+        var(--text-light);
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+}
+
+.summary-number {
+
+    color:
+        var(--maroon);
+
+    font-size:
+        38px;
+
+    font-weight:
+        950;
+
+    margin-top:
+        5px;
+}
+
+
+/* =========================================================
+   LINKS & PROFILES
+========================================================= */
+
+.profile-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        18px;
+}
+
+.profile-card {
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        20px;
+
+    padding:
+        25px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.profile-card h3 {
+
+    margin-top:
+        0;
+}
+
+.profile-card p {
+
+    color:
+        var(--text-light);
+
+    line-height:
+        1.6;
+}
+
+.profile-card a {
+
+    color:
+        var(--maroon);
+
+    font-weight:
+        850;
+
+    text-decoration:
+        none;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        55px 0
+        70px;
+
+    border-top:
+        1px solid var(--border);
+
+    text-align:
+        center;
+
+    color:
+        var(--text-light);
+}
+
+footer strong {
+
+    color:
+        var(--maroon);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width: 850px) {
+
+    .hero-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .hero-photo {
+
+        height:
+            400px;
+    }
+
+    .featured-victories {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .description-logo {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .summary-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .profile-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .nav-button:not(.theme-button) {
+
+        display:
+            none;
+    }
+
+    .victory-card {
+
+        grid-template-columns:
+            55px
+            1fr;
+    }
+
+    .victory-card > * {
+
+        grid-column:
+            2;
+    }
+
+    .victory-card .player-title {
+
+        grid-column:
+            1;
+
+        grid-row:
+            1 / span 4;
+    }
+
+    .card-label {
+
+        display:
+            block;
+    }
+}
+
+
+@media(max-width: 520px) {
+
+    .hero {
+
+        padding-top:
+            60px;
+    }
+
+    .hero h1 {
+
+        font-size:
+            44px;
+    }
+
+    .summary-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .section-top,
+    .subsection-heading {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+    .navigation {
+
+        gap:
+            4px;
+    }
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
+<!-- =======================================================
+     HEADER
+======================================================== -->
 
-    <nav>
+<header>
 
-        <div class="brand">
+<div class="container navbar">
 
-            <img
-                src="logo.png"
-                alt="Mihin Weragama Chess"
-                class="brand-logo"
-            >
+    <!-- CHANGE THIS TO YOUR LOGO -->
+    <img
+        src="images/mihin-logo.png"
+        alt="Mihin Weragama Chess Logo"
+        class="main-logo"
+    >
 
-        </div>
+    <nav class="navigation">
 
+        <a
+            href="#introduction"
+            class="nav-button"
+        >
+            Introduction
+        </a>
 
-        <div class="nav-links">
+        <a
+            href="#victories"
+            class="nav-button"
+        >
+            Top Victories
+        </a>
 
-            <a href="#about">
-                About
-            </a>
+        <a
+            href="#profiles"
+            class="nav-button"
+        >
+            Profiles
+        </a>
 
-            <a href="#achievements">
-                Achievements
-            </a>
-
-            <a href="#victories">
-                Victories
-            </a>
-
-            <a href="#online">
-                Online
-            </a>
-
-        </div>
+        <button
+            id="themeButton"
+            class="nav-button theme-button"
+        >
+            🌙 Dark
+        </button>
 
     </nav>
 
+</div>
 
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
-    <header class="hero">
-
-        <div class="hero-content">
-
-
-            <div class="eyebrow">
-                Arena International Master · International Rated Chess Player · Sri Lanka
-            </div>
-
-
-            <h1>
-
-                <span class="aim">
-                    AIM
-                </span>
-
-                MIHIN MINDULA WERAGAMA
-
-            </h1>
-
-
-            <p class="hero-description">
-
-                Competitive chess player from Sri Lanka,
-                documenting a journey of competition,
-                achievement, memorable victories and
-                continuous improvement.
-
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <a
-                    href="#achievements"
-                    class="button"
-                >
-                    Explore my chess journey
-                </a>
-
-
-                <a
-                    href="#online"
-                    class="button"
-                >
-                    Chess Profiles
-                </a>
-
-            </div>
-
-        </div>
-
-    </header>
+</header>
 
 
 
-    <!-- =========================
-         ABOUT
-    ========================= -->
+<!-- =======================================================
+     MAIN
+======================================================== -->
 
-    <section id="about">
+<main>
 
-        <div class="section-label">
-            01 · About
+
+<!-- =======================================================
+     SECTION 01 — INTRODUCTION
+======================================================== -->
+
+<section
+    id="introduction"
+    class="hero"
+>
+
+<div class="container hero-grid">
+
+
+    <!-- LEFT SIDE -->
+
+    <div>
+
+        <div class="hero-label">
+            Chess Portfolio • Sri Lanka
         </div>
 
 
-        <h2 class="section-title">
-            The journey
-        </h2>
+        <h1>
+
+            <span class="hero-title">
+                AIM
+            </span>
+
+            <span class="hero-name">
+                Mihin Mindula Weragama
+            </span>
+
+        </h1>
 
 
-        <p class="section-text">
+        <div class="hero-question">
+            Who is Mihin Weragama?
+        </div>
 
-            I am an international rated chess player from
-            Sri Lanka and an Arena International Master.
 
-            <br><br>
+        <p class="hero-text">
 
-            Chess has been a major part of my journey,
-            from competitive online play to over-the-board
-            competition and memorable games against strong
-            titled players.
-
-            <br><br>
-
-            This website documents my chess career,
-            achievements, notable victories, rankings,
-            tournaments and online chess journey.
+            Replace this paragraph with your complete
+            biography. This area can contain information
+            about Mihin's chess career, achievements,
+            playing history and other important details.
 
         </p>
 
-    </section>
 
-
-
-    <!-- =========================
-         ACHIEVEMENTS
-    ========================= -->
-
-    <section id="achievements">
-
-        <div class="section-label">
-            02 · Career
+        <div class="hero-question">
+            Bullet Career
         </div>
 
 
-        <h2 class="section-title">
-            Achievements
-        </h2>
+        <p class="hero-text">
+
+            Add your Bullet career information here.
+
+        </p>
 
 
-        <div class="cards">
-
-
-            <div class="card">
-
-                <div class="card-number">
-                    01
-                </div>
-
-                <h3>
-                    Arena International Master
-                </h3>
-
-                <p>
-                    FIDE Online Arena title.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-number">
-                    02
-                </div>
-
-                <h3>
-                    National Ranking
-                </h3>
-
-                <p>
-                    Highest national ranking achieved
-                    on FIDE Online Arena.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-number">
-                    03
-                </div>
-
-                <h3>
-                    Titled Victories
-                </h3>
-
-                <p>
-                    Memorable victories against strong
-                    titled chess players.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-number">
-                    04
-                </div>
-
-                <h3>
-                    Competitive Chess
-                </h3>
-
-                <p>
-                    Experience across online and
-                    over-the-board competition.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
+    </div>
 
 
 
-    <!-- =========================
-         TITLED VICTORIES
-    ========================= -->
+    <!-- RIGHT SIDE -->
 
-    <section id="victories">
+    <div class="hero-photo">
 
-        <div class="section-label">
-            03 · Titled Victories
-        </div>
+        <!--
+            REPLACE THIS WITH YOUR PHOTO
 
+            Example:
 
-        <div class="victories-header">
+            <img
+                src="images/mihin-photo.jpg"
+                alt="AIM Mihin Mindula Weragama"
+            >
+        -->
+
+        <div class="image-placeholder">
 
             <div>
 
-                <h2 class="section-title">
-                    Players I Have Defeated
-                </h2>
+                <strong>
+                    YOUR PHOTO
+                </strong>
+
+                <br>
+
+                Upload your portrait and replace
+                this placeholder.
+
+            </div>
+
+        </div>
+
+    </div>
 
 
-                <p class="section-text">
+</div>
 
-                    A collection of titled players defeated
-                    during my competitive chess journey.
+</section>
+
+
+
+<!-- =======================================================
+     SECTION 02 — TOP VICTORIES
+======================================================== -->
+
+<section id="victories">
+
+<div class="container">
+
+
+    <div class="section-top">
+
+        <div>
+
+            <div class="section-label">
+                Section 02
+            </div>
+
+            <h2>
+                Top Victories
+            </h2>
+
+        </div>
+
+
+        <div class="section-description">
+
+            A collection of notable victories from
+            Mihin Weragama's chess career.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FEATURED VICTORIES -->
+
+    <div class="featured-victories">
+
+
+        <div class="featured-card">
+
+            <div class="featured-badge">
+                GM
+            </div>
+
+            <div>
+
+                <h3>
+                    GM Davor Rogic
+                </h3>
+
+                <p>
+                    Featured Victory
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="featured-card">
+
+            <div class="featured-badge">
+                GM
+            </div>
+
+            <div>
+
+                <h3>
+                    GM Joseph Gallagher
+                </h3>
+
+                <p>
+                    Featured Victory
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ===================================================
+         SUBSECTION 01
+    ==================================================== -->
+
+    <div class="subsection">
+
+
+        <div class="subsection-heading">
+
+            <h3>
+                Victories Against Titled Players
+            </h3>
+
+
+            <div class="filter-area">
+
+                <label for="titleFilter">
+                    Filter Title:
+                </label>
+
+                <select id="titleFilter">
+
+                    <option value="ALL">
+                        All Titles
+                    </option>
+
+                    <option value="GM">
+                        GM
+                    </option>
+
+                    <option value="IM">
+                        IM
+                    </option>
+
+                    <option value="FM">
+                        FM
+                    </option>
+
+                    <option value="CM">
+                        CM
+                    </option>
+
+                    <option value="WGM">
+                        WGM
+                    </option>
+
+                    <option value="WIM">
+                        WIM
+                    </option>
+
+                    <option value="WFM">
+                        WFM
+                    </option>
+
+                    <option value="WCM">
+                        WCM
+                    </option>
+
+                    <option value="LM">
+                        LM
+                    </option>
+
+                    <option value="AGM">
+                        AGM
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+        <div
+            id="titledVictories"
+            class="victory-list"
+        ></div>
+
+
+        <div
+            id="emptyMessage"
+            style="
+                display:none;
+                text-align:center;
+                padding:30px;
+                color:var(--text-light);
+            "
+        >
+            No victories found for this title.
+        </div>
+
+
+        <div class="see-more-container">
+
+            <button
+                id="seeMoreButton"
+                class="see-more"
+            >
+                See More
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ===================================================
+         DESCRIPTION + LOGO
+    ==================================================== -->
+
+    <div class="subsection">
+
+        <div class="description-logo">
+
+
+            <div class="description-content">
+
+                <div class="section-label">
+                    Titled Victories
+                </div>
+
+                <h3>
+                    ...
+                </h3>
+
+                <p>
+
+                    Add your description here.
+
+                    This section can explain the significance
+                    of your victories against titled players,
+                    your online chess career, or any other
+                    information you want visitors to know.
 
                 </p>
 
             </div>
 
 
-            <div class="victory-count">
+            <div class="description-image">
 
-                <div
-                    class="victory-count-number"
-                    id="victoryCount"
+                <!-- CHANGE THIS TO YOUR LOGO -->
+
+                <img
+                    src="images/chess-logo.png"
+                    alt="Chess Logo"
                 >
-                    0
-                </div>
-
-
-                <div class="victory-count-label">
-                    Victories
-                </div>
 
             </div>
 
+
         </div>
 
+    </div>
 
-        <input
-            type="text"
-            id="victorySearch"
-            class="victory-search"
-            placeholder="Search defeated players..."
-            aria-label="Search defeated players"
-        >
+
+
+    <!-- ===================================================
+         SUBSECTION 02
+    ==================================================== -->
+
+    <div class="subsection">
+
+        <div class="subsection-heading">
+
+            <h3>
+                Victories Against National Champions
+            </h3>
+
+        </div>
 
 
         <div
-            class="victories-list"
-            id="victoriesList"
-        >
+            id="nationalChampions"
+            class="victory-list"
+        ></div>
 
-            <div class="victory">
-
-                <div>
-
-                    <div class="victory-name">
-                        Titled victories coming soon
-                    </div>
+    </div>
 
 
-                    <div class="victory-description">
-                        Your complete list of defeated players
-                        will be added here.
-                    </div>
 
+    <!-- ===================================================
+         SUBSECTION 03
+    ==================================================== -->
+
+    <div class="subsection">
+
+        <div class="subsection-heading">
+
+            <h3>
+                Victories Against AGMs
+            </h3>
+
+        </div>
+
+
+        <div
+            id="agmVictories"
+            class="victory-list"
+        ></div>
+
+    </div>
+
+
+
+    <!-- ===================================================
+         SUBSECTION 04
+    ==================================================== -->
+
+    <div class="subsection">
+
+        <div class="subsection-heading">
+
+            <h3>
+                Titled Victories in Blitz
+            </h3>
+
+        </div>
+
+
+        <div
+            id="blitzVictories"
+            class="victory-list"
+        ></div>
+
+    </div>
+
+
+
+    <!-- ===================================================
+         SUBSECTION 05 — SUMMARY
+    ==================================================== -->
+
+    <div class="subsection">
+
+
+        <div class="section-top">
+
+            <div>
+
+                <div class="section-label">
+                    Sub-Section 05
                 </div>
+
+                <h2>
+                    Summary of Titled Victories
+                </h2>
 
             </div>
 
         </div>
 
 
-        <p class="victories-note">
 
-            The complete collection of titled opponents
-            will be added to this section later.
-
-        </p>
-
-    </section>
+        <div class="summary-grid">
 
 
+            <div class="summary-card">
 
-    <!-- =========================
-         ONLINE CHESS
-    ========================= -->
+                <div class="summary-title">
+                    GM — Grandmaster
+                </div>
 
-    <section id="online">
+                <div class="summary-number">
+                    05
+                </div>
 
-        <div class="section-label">
-            04 · Online Chess
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-title">
+                    LM — Lichess Master
+                </div>
+
+                <div class="summary-number">
+                    02
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-title">
+                    IM — International Master
+                </div>
+
+                <div class="summary-number">
+                    03
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-title">
+                    FM — FIDE Master
+                </div>
+
+                <div class="summary-number">
+                    06
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-title">
+                    CM — Candidate Master
+                </div>
+
+                <div class="summary-number">
+                    22
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-title">
+                    WGM — Woman Grandmaster
+                </div>
+
+                <div class="summary-number">
+                    28
+                </div>
+
+            </div>
+
+
         </div>
 
-
-        <h2 class="section-title">
-            Chess Profiles
-        </h2>
+    </div>
 
 
-        <p class="section-text">
+</div>
 
-            Explore my games, ratings, rankings and
-            competitive history across my chess platforms.
-
-        </p>
+</section>
 
 
-        <br><br>
+
+<!-- =======================================================
+     SECTION 03 — LINKS & PROFILES
+======================================================== -->
+
+<section id="profiles">
+
+<div class="container">
 
 
-        <div class="profiles">
+    <div class="section-top">
+
+        <div>
+
+            <div class="section-label">
+                Section 03
+            </div>
+
+            <h2>
+                Links & Profiles
+            </h2>
+
+        </div>
+
+    </div>
 
 
-            <a
-                href="#"
-                class="profile"
-                target="_blank"
-            >
-                Lichess
-            </a>
+
+    <div class="profile-grid">
 
 
-            <a
-                href="#"
-                class="profile"
-                target="_blank"
-            >
+        <div class="profile-card">
+
+            <h3>
                 FIDE
-            </a>
+            </h3>
 
-
-            <a
-                href="#"
-                class="profile"
-                target="_blank"
-            >
-                World Chess
-            </a>
-
+            <p>
+                Official FIDE player profile.
+            </p>
 
             <a
                 href="#"
-                class="profile"
                 target="_blank"
             >
+                Visit Profile →
+            </a>
+
+        </div>
+
+
+
+        <div class="profile-card">
+
+            <h3>
                 FIDE Online Arena
+            </h3>
+
+            <p>
+                FIDE Arena profile and online
+                chess achievements.
+            </p>
+
+            <a
+                href="#"
+                target="_blank"
+            >
+                Visit Profile →
             </a>
 
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
-    <footer>
-
-        <div>
-            © 2026 Mihin Mindula Weragama
         </div>
 
 
-        <div>
-            MIHIN WERAGAMA CHESS
+
+        <div class="profile-card">
+
+            <h3>
+                Lichess
+            </h3>
+
+            <p>
+                Online chess profile and games.
+            </p>
+
+            <a
+                href="#"
+                target="_blank"
+            >
+                Visit Profile →
+            </a>
+
         </div>
 
-    </footer>
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+</main>
 
 
 
-    <!-- =========================
-         VICTORY SEARCH
-    ========================= -->
+<!-- =======================================================
+     FOOTER
+======================================================== -->
 
-    <script>
+<footer>
 
-        const searchInput =
-            document.getElementById(
-                "victorySearch"
+<div class="container">
+
+    <strong>
+        AIM Mihin Mindula Weragama
+    </strong>
+
+    <br>
+
+    Chess Portfolio
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   VICTORY DATA
+=========================================================
+
+   THIS IS THE IMPORTANT PART.
+
+   Later, when you give me 100+ victories,
+   I can replace this dataset with your
+   complete information.
+
+========================================================= */
+
+
+const titledVictories = [
+
+    {
+        title: "FM",
+        name: "Sunil Weerdjdm",
+        country: "USA",
+        rating: "2345",
+        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
+    },
+
+    {
+        title: "FM",
+        name: "Sunil Weerdjdm",
+        country: "IND",
+        rating: "2546",
+        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
+    },
+
+    {
+        title: "FM",
+        name: "Sunil Weerdjdm",
+        country: "SRI",
+        rating: "2546",
+        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
+    },
+
+    {
+        title: "FM",
+        name: "Sunil Weerdjdm",
+        country: "ITA",
+        rating: "2546",
+        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
+    },
+
+    {
+        title: "FM",
+        name: "Sunil Weerdjdm",
+        country: "RUS",
+        rating: "2546",
+        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
+    },
+
+    {
+        title: "FM",
+        name: "Sunil Weerdjdm",
+        country: "CHI",
+        rating: "2546",
+        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
+    },
+
+    {
+        title: "FM",
+        name: "Sunil Weerdjdm",
+        country: "USA",
+        rating: "2546",
+        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
+    },
+
+    {
+        title: "FM",
+        name: "Sunil Weerdjdm",
+        country: "USA",
+        rating: "2546",
+        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
+    },
+
+    {
+        title: "FM",
+        name: "Sunil Weerdjdm",
+        country: "USA",
+        rating: "2546",
+        link: ""
+    },
+
+    {
+        title: "FM",
+        name: "Sunil Weerdjdm",
+        country: "",
+        rating: "2546",
+        link: ""
+    },
+
+    {
+        title: "FM",
+        name: "Sunil Weerdjdm",
+        country: "",
+        rating: "2546",
+        link: ""
+    },
+
+    {
+        title: "FM",
+        name: "Sunil Weerdjdm",
+        country: "",
+        rating: "2546",
+        link: ""
+    }
+
+];
+
+
+/* =========================================================
+   COUNTRY FLAGS
+
+   You provide country codes.
+   The website automatically converts
+   them to flags.
+========================================================= */
+
+const countryFlags = {
+
+    USA: "🇺🇸",
+    IND: "🇮🇳",
+    SRI: "🇱🇰",
+    ITA: "🇮🇹",
+    RUS: "🇷🇺",
+    CHI: "🇨🇳",
+    GER: "🇩🇪",
+    FRA: "🇫🇷",
+    ENG: "🏴",
+    ESP: "🇪🇸",
+    NED: "🇳🇱",
+    NOR: "🇳🇴",
+    DEN: "🇩🇰",
+    SWE: "🇸🇪",
+    AUS: "🇦🇺",
+    CAN: "🇨🇦"
+
+};
+
+
+/* =========================================================
+   CREATE VICTORY CARD
+========================================================= */
+
+function createVictoryCard(victory) {
+
+    const flag =
+        countryFlags[victory.country] || "";
+
+
+    let gameButton = "";
+
+    if (victory.link) {
+
+        gameButton = `
+            <a
+                href="${victory.link}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="watch-game"
+            >
+                Watch the Game
+            </a>
+        `;
+
+    } else {
+
+        gameButton = `
+            <span
+                style="
+                    color:var(--text-light);
+                    font-size:13px;
+                "
+            >
+                Link unavailable
+            </span>
+        `;
+
+    }
+
+
+    return `
+
+        <article class="victory-card">
+
+            <div class="player-title">
+                ${victory.title || "—"}
+            </div>
+
+            <div class="player-name">
+                ${victory.name || "Unknown"}
+            </div>
+
+            <div class="player-country">
+                ${flag}
+                ${victory.country || "—"}
+            </div>
+
+            <div class="player-rating">
+                ${victory.rating || "—"}
+            </div>
+
+            <div>
+                ${gameButton}
+            </div>
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================================================
+   FILTER + SEE MORE
+========================================================= */
+
+let showAll = false;
+
+
+function renderTitledVictories() {
+
+    const filter =
+        document.getElementById(
+            "titleFilter"
+        ).value;
+
+
+    let filtered;
+
+
+    if (filter === "ALL") {
+
+        filtered =
+            titledVictories;
+
+    } else {
+
+        filtered =
+            titledVictories.filter(
+                victory =>
+                    victory.title === filter
             );
 
-
-        const victoriesList =
-            document.getElementById(
-                "victoriesList"
-            );
+    }
 
 
-        const victoryCount =
-            document.getElementById(
-                "victoryCount"
-            );
-
-
-        function updateVictoryCount() {
-
-            const victories =
-                victoriesList.querySelectorAll(
-                    ".victory"
-                );
-
-
-            let realVictories = 0;
-
-
-            victories.forEach(
-                function(victory) {
-
-                    const name =
-                        victory.querySelector(
-                            ".victory-name"
-                        );
-
-
-                    if (
-                        name &&
-                        !name.textContent
-                            .toLowerCase()
-                            .includes(
-                                "coming soon"
-                            )
-                    ) {
-
-                        realVictories++;
-
-                    }
-
-                }
-            );
-
-
-            victoryCount.textContent =
-                realVictories;
-
-        }
-
-
-        searchInput.addEventListener(
-            "input",
-            function() {
-
-                const searchTerm =
-                    this.value
-                        .toLowerCase()
-                        .trim();
-
-
-                const victories =
-                    victoriesList.querySelectorAll(
-                        ".victory"
-                    );
-
-
-                victories.forEach(
-                    function(victory) {
-
-                        const text =
-                            victory.textContent
-                                .toLowerCase();
-
-
-                        if (
-                            text.includes(
-                                searchTerm
-                            )
-                        ) {
-
-                            victory.style.display =
-                                "flex";
-
-                        } else {
-
-                            victory.style.display =
-                                "none";
-
-                        }
-
-                    }
-                );
-
-            }
+    const list =
+        document.getElementById(
+            "titledVictories"
         );
 
 
-        updateVictoryCount();
+    const empty =
+        document.getElementById(
+            "emptyMessage"
+        );
 
-    </script>
 
+    if (filtered.length === 0) {
+
+        list.innerHTML = "";
+
+        empty.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    empty.style.display =
+        "none";
+
+
+    const visible =
+        showAll
+            ? filtered
+            : filtered.slice(0, 10);
+
+
+    list.innerHTML =
+        visible
+            .map(createVictoryCard)
+            .join("");
+
+
+    const button =
+        document.getElementById(
+            "seeMoreButton"
+        );
+
+
+    if (filtered.length > 10) {
+
+        button.style.display =
+            "inline-block";
+
+        button.textContent =
+            showAll
+                ? "Show Less"
+                : "See More";
+
+    } else {
+
+        button.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* Filter */
+
+document
+    .getElementById("titleFilter")
+    .addEventListener(
+        "change",
+        function() {
+
+            showAll = false;
+
+            renderTitledVictories();
+
+        }
+    );
+
+
+/* See More */
+
+document
+    .getElementById("seeMoreButton")
+    .addEventListener(
+        "click",
+        function() {
+
+            showAll =
+                !showAll;
+
+            renderTitledVictories();
+
+        }
+    );
+
+
+/* =========================================================
+   OTHER VICTORY SECTIONS
+
+   For this prototype they use sample data.
+   Later each will receive its own real dataset.
+========================================================= */
+
+function renderSimpleList(
+    elementId,
+    data
+) {
+
+    document
+        .getElementById(elementId)
+        .innerHTML =
+            data
+                .map(createVictoryCard)
+                .join("");
+
+}
+
+
+renderSimpleList(
+    "nationalChampions",
+    titledVictories.slice(0,7)
+);
+
+
+renderSimpleList(
+    "agmVictories",
+    titledVictories.slice(0,7)
+);
+
+
+renderSimpleList(
+    "blitzVictories",
+    titledVictories.slice(0,7)
+);
+
+
+/* =========================================================
+   INITIAL RENDER
+========================================================= */
+
+renderTitledVictories();
+
+
+/* =========================================================
+   DARK / LIGHT MODE
+========================================================= */
+
+const themeButton =
+    document.getElementById(
+        "themeButton"
+    );
+
+
+function updateThemeButton() {
+
+    const dark =
+        document.body.classList.contains(
+            "dark"
+        );
+
+
+    themeButton.textContent =
+        dark
+            ? "☀️ Light"
+            : "🌙 Dark";
+
+}
+
+
+/* Remember user's choice */
+
+const savedTheme =
+    localStorage.getItem(
+        "mihinTheme"
+    );
+
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add(
+        "dark"
+    );
+
+}
+
+
+updateThemeButton();
+
+
+themeButton.addEventListener(
+    "click",
+    function() {
+
+        document.body.classList.toggle(
+            "dark"
+        );
+
+
+        const dark =
+            document.body.classList.contains(
+                "dark"
+            );
+
+
+        localStorage.setItem(
+            "mihinTheme",
+            dark
+                ? "dark"
+                : "light"
+        );
+
+
+        updateThemeButton();
+
+    }
+);
+
+</script>
 
 </body>
 </html>
