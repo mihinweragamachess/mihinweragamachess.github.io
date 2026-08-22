@@ -6,7 +6,6 @@
 
 <title>AIM Mihin Mindula Weragama | Chess Portfolio</title>
 
-<!-- Google Sans -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -545,13 +544,7 @@ main {
 
     gap: 9px;
 
-    /*
-       UPDATED:
-       Victory bars are now much shorter and centered.
-    */
-    width: min(100%, 850px);
-    margin-left: auto;
-    margin-right: auto;
+    width: min(100%, 1250px);
 }
 
 .victory-card {
@@ -570,7 +563,13 @@ main {
 
     padding: 12px 15px;
 
-    background: var(--bg-card);
+    /* WHITE → LIGHT-GRAY GRADIENT */
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f7f7f7 45%,
+        #e3e3e3 100%
+    );
 
     border: 1px solid var(--border);
 
@@ -692,14 +691,7 @@ main {
 
     letter-spacing: 0.5px;
 
-    /*
-       UPDATED:
-       Keep headings aligned with the shorter,
-       centered victory bars.
-    */
-    width: min(100%, 850px);
-    margin-left: auto;
-    margin-right: auto;
+    width: min(100%, 1250px);
 }
 
 .see-more-container {
@@ -707,9 +699,7 @@ main {
 
     margin-top: 20px;
 
-    width: min(100%, 850px);
-    margin-left: auto;
-    margin-right: auto;
+    width: min(100%, 1250px);
 }
 
 .see-more-button {
@@ -895,12 +885,6 @@ footer strong {
 
     .victory-list,
     .victory-header {
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .see-more-container {
         width: 100%;
     }
 }
