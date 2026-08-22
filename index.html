@@ -538,6 +538,10 @@ main {
     width: 180px;
 }
 
+.country-filter-wrapper {
+    width: 180px;
+}
+
 .victory-list {
     display: flex;
 
@@ -1283,6 +1287,46 @@ footer strong {
 
                     <option value="LM">
                         LM
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="country-filter-wrapper">
+
+                <select
+                    class="filter-select"
+                    id="countryFilter"
+                    onchange="filterVictories()"
+                >
+
+                    <option value="all">
+                        All Countries
+                    </option>
+
+                    <option value="USA">
+                        USA
+                    </option>
+
+                    <option value="IND">
+                        IND
+                    </option>
+
+                    <option value="SRI">
+                        SRI
+                    </option>
+
+                    <option value="ITA">
+                        ITA
+                    </option>
+
+                    <option value="RUS">
+                        RUS
+                    </option>
+
+                    <option value="CHI">
+                        CHI
                     </option>
 
                 </select>
@@ -2359,6 +2403,11 @@ function filterVictories() {
         .getElementById("titleFilter")
         .value;
 
+    const country =
+        document
+        .getElementById("countryFilter")
+        .value;
+
     const cards =
         document.querySelectorAll(
             "#titledVictoryList .victory-card"
@@ -2378,6 +2427,12 @@ function filterVictories() {
             .textContent
             .trim();
 
+        const playerCountry =
+            card
+            .querySelector(".card-country")
+            .textContent
+            .trim();
+
         const matchesName =
             playerName.includes(search);
 
@@ -2385,9 +2440,14 @@ function filterVictories() {
             title === "all" ||
             playerTitle === title;
 
+        const matchesCountry =
+            country === "all" ||
+            playerCountry.includes(country);
+
         if (
             matchesName &&
-            matchesTitle
+            matchesTitle &&
+            matchesCountry
         ) {
 
             card.style.display = "grid";
