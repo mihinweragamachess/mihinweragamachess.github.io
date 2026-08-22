@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 /* =========================================================
    ROOT
 ========================================================= */
@@ -34,6 +35,7 @@
     --radius: 22px;
 }
 
+
 /* =========================================================
    DARK MODE
 ========================================================= */
@@ -54,6 +56,7 @@ body.dark {
     --maroon-light: #c35470;
 }
 
+
 /* =========================================================
    GLOBAL
 ========================================================= */
@@ -72,7 +75,6 @@ body {
     font-family: "Google Sans", Arial, sans-serif;
     color: var(--text-main);
 
-    /* Slightly darker grey + white gradient */
     background:
         linear-gradient(
             135deg,
@@ -99,6 +101,7 @@ body.dark {
             #17181b 100%
         );
 }
+
 
 /* =========================================================
    CHESSBOARD BACKGROUND
@@ -131,6 +134,7 @@ body::before {
     pointer-events: none;
     z-index: -3;
 }
+
 
 /* =========================================================
    FLOATING CHESS PIECES
@@ -201,6 +205,7 @@ body::before {
 }
 
 @keyframes floatPiece {
+
     0%,100% {
         transform: translateY(0) rotate(-3deg);
     }
@@ -208,7 +213,9 @@ body::before {
     50% {
         transform: translateY(-20px) rotate(3deg);
     }
+
 }
+
 
 /* =========================================================
    HEADER
@@ -240,6 +247,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 25px;
 }
 
@@ -249,12 +257,15 @@ header {
     object-fit: contain;
 }
 
+
 /* Navigation */
 
 .nav-right {
     display: flex;
     align-items: center;
+
     gap: 10px;
+
     flex-wrap: wrap;
 }
 
@@ -284,13 +295,16 @@ header {
     color: white;
 
     transform: translateY(-2px);
-    box-shadow: 0 7px 18px rgba(116,31,53,0.22);
+
+    box-shadow:
+        0 7px 18px rgba(116,31,53,0.22);
 }
 
 .dark .nav-button,
 .dark .theme-button {
     background: rgba(255,255,255,0.05);
 }
+
 
 /* =========================================================
    MAIN CONTAINER
@@ -301,6 +315,7 @@ main {
     margin: auto;
 }
 
+
 /* =========================================================
    INTRODUCTION
 ========================================================= */
@@ -310,12 +325,9 @@ main {
 
     display: grid;
 
-    /*
-       IMPORTANT:
-       Only the introduction has the expanded
-       left/right proportions.
-    */
-    grid-template-columns: minmax(0, 1.18fr) minmax(400px, 0.82fr);
+    grid-template-columns:
+        minmax(0, 1.18fr)
+        minmax(400px, 0.82fr);
 
     align-items: center;
 
@@ -323,6 +335,7 @@ main {
 
     padding: 75px 20px 90px;
 }
+
 
 /* Left */
 
@@ -334,10 +347,6 @@ main {
 .hero-title {
     margin-bottom: 28px;
 
-    /*
-       Smaller than previous version.
-       nowrap keeps title/name on ONE LINE.
-    */
     font-size: clamp(34px, 3.6vw, 56px);
 
     line-height: 1.05;
@@ -370,6 +379,7 @@ main {
     color: var(--text-main);
 
     font-size: 28px;
+
     margin-bottom: 17px;
 
     font-weight: 700;
@@ -388,10 +398,12 @@ main {
     margin-bottom: 9px;
 }
 
+
 /* Right */
 
 .hero-photo-area {
     display: flex;
+
     justify-content: flex-end;
     align-items: center;
 
@@ -400,6 +412,7 @@ main {
 
 .hero-photo {
     width: min(470px, 100%);
+
     aspect-ratio: 1 / 1;
 
     object-fit: cover;
@@ -415,6 +428,7 @@ main {
     background: #ddd;
 }
 
+
 /* =========================================================
    GENERAL SECTIONS
 ========================================================= */
@@ -429,6 +443,7 @@ main {
 
 .section-heading h2 {
     font-size: clamp(32px, 4vw, 48px);
+
     line-height: 1.1;
 
     font-weight: 700;
@@ -450,6 +465,7 @@ main {
     line-height: 1.7;
 }
 
+
 /* =========================================================
    TOP VICTORIES
 ========================================================= */
@@ -457,7 +473,8 @@ main {
 .featured-victories {
     display: grid;
 
-    grid-template-columns: repeat(2, minmax(0,1fr));
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
 
     gap: 20px;
 
@@ -488,6 +505,7 @@ main {
     color: var(--maroon);
 
     font-size: 13px;
+
     font-weight: 700;
 
     text-transform: uppercase;
@@ -499,12 +517,14 @@ main {
 
 .featured-card h3 {
     font-size: 24px;
+
     margin-bottom: 7px;
 }
 
 .featured-card p {
     color: var(--text-soft);
 }
+
 
 /* =========================================================
    SUBSECTIONS
@@ -541,6 +561,7 @@ main {
     vertical-align: -4px;
 }
 
+
 /* =========================================================
    CONTROLS
 ========================================================= */
@@ -560,6 +581,7 @@ main {
 
 .search-box {
     flex: 1;
+
     min-width: 230px;
 
     position: relative;
@@ -592,12 +614,14 @@ main {
 .filter-select:focus {
     border-color: var(--maroon);
 
-    box-shadow: 0 0 0 3px rgba(116,31,53,0.10);
+    box-shadow:
+        0 0 0 3px rgba(116,31,53,0.10);
 }
 
 .filter-wrapper {
     width: 180px;
 }
+
 
 /* =========================================================
    VICTORY LIST
@@ -611,11 +635,8 @@ main {
     gap: 9px;
 }
 
-/*
-   Shorter cards:
-   Previously there was excessive empty space between
-   opponent name / country / rating / button.
-*/
+
+/* Compact victory cards */
 
 .victory-card {
     display: grid;
@@ -639,7 +660,8 @@ main {
 
     border-radius: 15px;
 
-    box-shadow: 0 5px 17px rgba(0,0,0,0.055);
+    box-shadow:
+        0 5px 17px rgba(0,0,0,0.055);
 
     transition: 0.2s ease;
 }
@@ -650,13 +672,28 @@ main {
     transform: translateX(2px);
 }
 
+
+/* =========================================================
+   TITLE
+   Slightly larger than before — intentionally subtle
+========================================================= */
+
 .card-title {
     color: var(--maroon);
 
     font-weight: 700;
 
-    font-size: 15px;
+    font-size: 17px;
+
+    line-height: 1;
+
+    letter-spacing: 0.1px;
 }
+
+
+/* =========================================================
+   PLAYER NAME
+========================================================= */
 
 .card-name {
     font-weight: 600;
@@ -664,25 +701,62 @@ main {
     min-width: 0;
 
     overflow: hidden;
+
     text-overflow: ellipsis;
+
     white-space: nowrap;
 }
+
+
+/* =========================================================
+   COUNTRY + PNG FLAG
+========================================================= */
 
 .card-country {
     display: flex;
 
     align-items: center;
 
-    gap: 7px;
+    gap: 8px;
 
     font-size: 14px;
 
     color: var(--text-soft);
+
+    white-space: nowrap;
 }
 
+
+/*
+   Actual PNG country flags.
+
+   These are PNG images rather than emoji,
+   so they display consistently on both
+   desktop and mobile.
+*/
+
 .flag {
-    font-size: 20px;
+    width: 25px;
+    height: 17px;
+
+    object-fit: cover;
+
+    border-radius: 3px;
+
+    display: inline-block;
+
+    flex-shrink: 0;
+
+    box-shadow:
+        0 1px 3px rgba(0,0,0,0.16);
+
+    border: 1px solid rgba(0,0,0,0.08);
 }
+
+
+/* =========================================================
+   RATING
+========================================================= */
 
 .card-rating {
     color: var(--text-soft);
@@ -690,10 +764,16 @@ main {
     font-weight: 500;
 }
 
+
+/* =========================================================
+   WATCH GAME
+========================================================= */
+
 .watch-button {
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 9px 12px;
@@ -718,10 +798,14 @@ main {
 
     transform: translateY(-1px);
 
-    box-shadow: 0 5px 14px rgba(116,31,53,0.25);
+    box-shadow:
+        0 5px 14px rgba(116,31,53,0.25);
 }
 
-/* Column headings */
+
+/* =========================================================
+   COLUMN HEADINGS
+========================================================= */
 
 .victory-header {
     display: grid;
@@ -747,6 +831,7 @@ main {
 
     letter-spacing: 0.5px;
 }
+
 
 /* =========================================================
    SEE MORE
@@ -784,6 +869,7 @@ main {
     transform: translateY(-2px);
 }
 
+
 /* =========================================================
    DESCRIPTION + LOGO
 ========================================================= */
@@ -791,7 +877,8 @@ main {
 .info-split {
     display: grid;
 
-    grid-template-columns: 1.3fr 0.7fr;
+    grid-template-columns:
+        1.3fr 0.7fr;
 
     gap: 50px;
 
@@ -823,6 +910,7 @@ main {
     opacity: 0.9;
 }
 
+
 /* =========================================================
    SUMMARY
 ========================================================= */
@@ -830,7 +918,8 @@ main {
 .summary-grid {
     display: grid;
 
-    grid-template-columns: repeat(3, minmax(0,1fr));
+    grid-template-columns:
+        repeat(3, minmax(0,1fr));
 
     gap: 15px;
 }
@@ -844,7 +933,8 @@ main {
 
     padding: 21px;
 
-    box-shadow: 0 7px 20px rgba(0,0,0,0.06);
+    box-shadow:
+        0 7px 20px rgba(0,0,0,0.06);
 }
 
 .summary-card .summary-title {
@@ -863,6 +953,7 @@ main {
     font-weight: 700;
 }
 
+
 /* =========================================================
    LINKS & PROFILES
 ========================================================= */
@@ -870,7 +961,8 @@ main {
 .profile-grid {
     display: grid;
 
-    grid-template-columns: repeat(3, minmax(0,1fr));
+    grid-template-columns:
+        repeat(3, minmax(0,1fr));
 
     gap: 18px;
 }
@@ -913,6 +1005,7 @@ main {
     font-size: 14px;
 }
 
+
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -933,6 +1026,7 @@ footer strong {
     color: var(--maroon);
 }
 
+
 /* =========================================================
    RESPONSIVE
 ========================================================= */
@@ -940,13 +1034,15 @@ footer strong {
 @media (max-width: 1100px) {
 
     .hero {
-        grid-template-columns: 1fr 0.8fr;
+        grid-template-columns:
+            1fr 0.8fr;
 
         gap: 45px;
     }
 
     .hero-title {
-        font-size: clamp(30px, 4vw, 45px);
+        font-size:
+            clamp(30px, 4vw, 45px);
     }
 
     .victory-card,
@@ -958,7 +1054,9 @@ footer strong {
             75px
             115px;
     }
+
 }
+
 
 @media (max-width: 850px) {
 
@@ -1010,7 +1108,9 @@ footer strong {
     .info-split {
         grid-template-columns: 1fr;
     }
+
 }
+
 
 @media (max-width: 650px) {
 
@@ -1034,14 +1134,11 @@ footer strong {
         grid-template-columns: 1fr;
     }
 
-    /*
-       Mobile victory cards become compact
-       vertical cards.
-    */
 
     .victory-header {
         display: none;
     }
+
 
     .victory-card {
         grid-template-columns:
@@ -1054,23 +1151,30 @@ footer strong {
         padding: 12px;
     }
 
+
     .card-country {
         grid-column: 2;
     }
+
 
     .card-rating {
         grid-column: 2;
     }
 
+
     .watch-button {
         grid-column: 3;
+
         grid-row: 1 / span 3;
     }
+
 
     .hero-title {
         font-size: 32px;
     }
+
 }
+
 
 /* =========================================================
    HIDDEN VICTORIES
@@ -1083,12 +1187,16 @@ footer strong {
 .hidden-victory.show {
     display: grid;
 }
+
 </style>
 </head>
 
+
 <body>
 
+
 <!-- Floating chess pieces -->
+
 <div class="chess-piece piece1">♜</div>
 <div class="chess-piece piece2">♞</div>
 <div class="chess-piece piece3">♝</div>
@@ -1106,31 +1214,47 @@ footer strong {
 
 <nav class="navbar">
 
-    <!-- Replace with your actual logo -->
     <a href="#introduction" class="logo">
-        <img src="logo.png" alt="Mihin Weragama Chess Logo">
+
+        <img
+            src="logo.png"
+            alt="Mihin Weragama Chess Logo"
+        >
+
     </a>
+
 
     <div class="nav-right">
 
-        <button class="nav-button"
-                onclick="scrollToSection('introduction')">
+        <button
+            class="nav-button"
+            onclick="scrollToSection('introduction')"
+        >
             Introduction
         </button>
 
-        <button class="nav-button"
-                onclick="scrollToSection('victories')">
+
+        <button
+            class="nav-button"
+            onclick="scrollToSection('victories')"
+        >
             Top Victories
         </button>
 
-        <button class="nav-button"
-                onclick="scrollToSection('profiles')">
+
+        <button
+            class="nav-button"
+            onclick="scrollToSection('profiles')"
+        >
             Links & Profiles
         </button>
 
-        <button class="theme-button"
-                onclick="toggleTheme()"
-                id="themeButton">
+
+        <button
+            class="theme-button"
+            onclick="toggleTheme()"
+            id="themeButton"
+        >
             ☾ Dark
         </button>
 
@@ -1143,33 +1267,46 @@ footer strong {
 
 <main>
 
+
 <!-- ======================================================
      SECTION 01 — INTRODUCTION
 ====================================================== -->
 
-<section class="hero" id="introduction">
+<section
+    class="hero"
+    id="introduction"
+>
 
     <div class="hero-content">
 
         <h1 class="hero-title">
-            <span class="aim">AIM</span>
-            <span class="name"> Mihin Mindula Weragama</span>
+
+            <span class="aim">
+                AIM
+            </span>
+
+            <span class="name">
+                Mihin Mindula Weragama
+            </span>
+
         </h1>
 
 
         <div class="hero-description">
 
-            <h2>Who is Mihin Weragama?</h2>
+            <h2>
+                Who is Mihin Weragama?
+            </h2>
+
 
             <p>
-                <!-- Replace this with your real biography -->
                 Mihin Mindula Weragama is a Sri Lankan chess player
                 with a strong competitive background in online and
                 over-the-board chess.
             </p>
 
+
             <p>
-                <!-- Replace with your own biography -->
                 He has achieved notable results against titled players
                 and continues to develop his chess career through
                 competitive play and continuous training.
@@ -1185,17 +1322,28 @@ footer strong {
                 Career
             </h3>
 
+
             <ul class="career-list">
 
-                <li>FIDE Arena Master</li>
+                <li>
+                    FIDE Arena Master
+                </li>
 
-                <li>Competitive chess player</li>
+                <li>
+                    Competitive chess player
+                </li>
 
-                <li>Victories against titled players</li>
+                <li>
+                    Victories against titled players
+                </li>
 
-                <li>Online and over-the-board experience</li>
+                <li>
+                    Online and over-the-board experience
+                </li>
 
-                <li>Active chess competitor</li>
+                <li>
+                    Active chess competitor
+                </li>
 
             </ul>
 
@@ -1206,7 +1354,6 @@ footer strong {
 
     <div class="hero-photo-area">
 
-        <!-- Replace with your actual 1:1 photo -->
         <img
             class="hero-photo"
             src="mihin-photo.jpg"
@@ -1223,7 +1370,11 @@ footer strong {
      SECTION 02 — TOP VICTORIES
 ====================================================== -->
 
-<section class="section" id="victories">
+<section
+    class="section"
+    id="victories"
+>
+
 
     <div class="section-heading">
 
@@ -1239,9 +1390,11 @@ footer strong {
     </div>
 
 
+
     <!-- Featured victories -->
 
     <div class="featured-victories">
+
 
         <div class="featured-card">
 
@@ -1249,7 +1402,9 @@ footer strong {
                 Notable Victory
             </div>
 
-            <h3>GM Davor Rogic</h3>
+            <h3>
+                GM Davor Rogic
+            </h3>
 
             <p>
                 Grandmaster victory.
@@ -1264,7 +1419,9 @@ footer strong {
                 Notable Victory
             </div>
 
-            <h3>GM Joseph Gallagher</h3>
+            <h3>
+                GM Joseph Gallagher
+            </h3>
 
             <p>
                 Grandmaster victory.
@@ -1276,63 +1433,496 @@ footer strong {
 
 
 
-    <!-- ==================================================
-         SUBSECTION 01
-    ================================================== -->
+<!-- ======================================================
+     SUBSECTION 01 — TITLED PLAYERS
+====================================================== -->
 
-    <div class="subsection">
-
-        <h3 class="subsection-title">
-            Victories Against Titled Players
-        </h3>
+<div class="subsection">
 
 
-        <div class="victory-controls">
-
-            <div class="search-box">
-
-                <input
-                    type="text"
-                    id="playerSearch"
-                    placeholder="Search player name or username..."
-                    oninput="filterVictories()"
-                >
-
-            </div>
+    <h3 class="subsection-title">
+        Victories Against Titled Players
+    </h3>
 
 
-            <div class="filter-wrapper">
+    <div class="victory-controls">
 
-                <select
-                    class="filter-select"
-                    id="titleFilter"
-                    onchange="filterVictories()"
-                >
 
-                    <option value="all">
-                        All Titles
-                    </option>
+        <div class="search-box">
 
-                    <option value="GM">GM</option>
-
-                    <option value="IM">IM</option>
-
-                    <option value="FM">FM</option>
-
-                    <option value="CM">CM</option>
-
-                    <option value="WGM">WGM</option>
-
-                    <option value="LM">LM</option>
-
-                </select>
-
-            </div>
+            <input
+                type="text"
+                id="playerSearch"
+                placeholder="Search player name or username..."
+                oninput="filterVictories()"
+            >
 
         </div>
 
 
-        <!-- Column headings -->
+        <div class="filter-wrapper">
+
+            <select
+                class="filter-select"
+                id="titleFilter"
+                onchange="filterVictories()"
+            >
+
+                <option value="all">
+                    All Titles
+                </option>
+
+                <option value="GM">
+                    GM
+                </option>
+
+                <option value="IM">
+                    IM
+                </option>
+
+                <option value="FM">
+                    FM
+                </option>
+
+                <option value="CM">
+                    CM
+                </option>
+
+                <option value="WGM">
+                    WGM
+                </option>
+
+                <option value="LM">
+                    LM
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Column headings -->
+
+    <div class="victory-header">
+
+        <div>
+            Title
+        </div>
+
+        <div>
+            Name / Username
+        </div>
+
+        <div>
+            Country
+        </div>
+
+        <div>
+            Rating
+        </div>
+
+        <div></div>
+
+    </div>
+
+
+
+    <div
+        class="victory-list"
+        id="titledVictoryList"
+    >
+
+
+        <!-- Victory 01 -->
+
+        <div class="victory-card">
+
+            <div class="card-title">
+                FM
+            </div>
+
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/us.png"
+                    alt="USA flag"
+                >
+
+                USA
+
+            </div>
+
+            <div class="card-rating">
+                2345
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+
+        <!-- Victory 02 -->
+
+        <div class="victory-card">
+
+            <div class="card-title">
+                FM
+            </div>
+
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/in.png"
+                    alt="India flag"
+                >
+
+                IND
+
+            </div>
+
+            <div class="card-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+
+        <!-- Victory 03 -->
+
+        <div class="victory-card">
+
+            <div class="card-title">
+                FM
+            </div>
+
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/lk.png"
+                    alt="Sri Lanka flag"
+                >
+
+                SRI
+
+            </div>
+
+            <div class="card-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+
+        <!-- Victory 04 -->
+
+        <div class="victory-card">
+
+            <div class="card-title">
+                FM
+            </div>
+
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/it.png"
+                    alt="Italy flag"
+                >
+
+                ITA
+
+            </div>
+
+            <div class="card-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+
+        <!-- Victory 05 -->
+
+        <div class="victory-card">
+
+            <div class="card-title">
+                FM
+            </div>
+
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/ru.png"
+                    alt="Russia flag"
+                >
+
+                RUS
+
+            </div>
+
+            <div class="card-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+
+        <!-- Victory 06 -->
+
+        <div class="victory-card">
+
+            <div class="card-title">
+                FM
+            </div>
+
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/cn.png"
+                    alt="China flag"
+                >
+
+                CHI
+
+            </div>
+
+            <div class="card-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+
+        <!-- Victory 07 -->
+
+        <div class="victory-card">
+
+            <div class="card-title">
+                FM
+            </div>
+
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/us.png"
+                    alt="USA flag"
+                >
+
+                USA
+
+            </div>
+
+            <div class="card-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+
+        <!-- Victory 08 -->
+
+        <div class="victory-card">
+
+            <div class="card-title">
+                FM
+            </div>
+
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/us.png"
+                    alt="USA flag"
+                >
+
+                USA
+
+            </div>
+
+            <div class="card-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="see-more-container">
+
+        <button
+            class="see-more-button"
+            onclick="showMoreVictories()"
+        >
+            See More
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     DESCRIPTION AFTER TITLED VICTORIES
+====================================================== -->
+
+<div class="info-split">
+
+    <div class="info-box">
+
+        <p>
+            ...
+        </p>
+
+    </div>
+
+
+    <div class="info-logo">
+
+        <img
+            src="victory-logo.png"
+            alt="Chess Logo"
+        >
+
+    </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     SUBSECTION 02 — NATIONAL CHAMPIONS
+====================================================== -->
+
+<div class="subsection">
+
+    <h3 class="subsection-title">
+        Victories Against National Champions
+    </h3>
+
+
+    <div class="victory-list">
+
 
         <div class="victory-header">
 
@@ -1345,682 +1935,508 @@ footer strong {
         </div>
 
 
-        <div class="victory-list" id="titledVictoryList">
+        <div class="victory-card">
 
+            <div class="card-title">
+                FM
+            </div>
 
-            <!-- Victory 01 -->
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
 
-            <div class="victory-card">
+            <div class="card-country">
 
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    <span class="flag">🇺🇸</span>
-                    USA
-                </div>
-
-                <div class="card-rating">
-                    2345
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/us.png"
+                    alt="USA flag"
                 >
-                    Watch Game
-                </a>
+
+                USA
 
             </div>
 
-
-            <!-- Victory 02 -->
-
-            <div class="victory-card">
-
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    <span class="flag">🇮🇳</span>
-                    IND
-                </div>
-
-                <div class="card-rating">
-                    2546
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Watch Game
-                </a>
-
+            <div class="card-rating">
+                2345
             </div>
 
-
-            <!-- Victory 03 -->
-
-            <div class="victory-card">
-
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    <span class="flag">🇱🇰</span>
-                    SRI
-                </div>
-
-                <div class="card-rating">
-                    2546
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Watch Game
-                </a>
-
-            </div>
-
-
-            <!-- Victory 04 -->
-
-            <div class="victory-card">
-
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    <span class="flag">🇮🇹</span>
-                    ITA
-                </div>
-
-                <div class="card-rating">
-                    2546
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Watch Game
-                </a>
-
-            </div>
-
-
-            <!-- Victory 05 -->
-
-            <div class="victory-card">
-
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    <span class="flag">🇷🇺</span>
-                    RUS
-                </div>
-
-                <div class="card-rating">
-                    2546
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Watch Game
-                </a>
-
-            </div>
-
-
-            <!-- Victory 06 -->
-
-            <div class="victory-card">
-
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    <span class="flag">🇨🇳</span>
-                    CHI
-                </div>
-
-                <div class="card-rating">
-                    2546
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Watch Game
-                </a>
-
-            </div>
-
-
-            <!-- Victory 07 -->
-
-            <div class="victory-card">
-
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    <span class="flag">🇺🇸</span>
-                    USA
-                </div>
-
-                <div class="card-rating">
-                    2546
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Watch Game
-                </a>
-
-            </div>
-
-
-            <!-- Victory 08 -->
-
-            <div class="victory-card">
-
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    <span class="flag">🇺🇸</span>
-                    USA
-                </div>
-
-                <div class="card-rating">
-                    2546
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Watch Game
-                </a>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="see-more-container">
-
-            <button
-                class="see-more-button"
-                onclick="showMoreVictories()"
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
             >
-                See More
-            </button>
+                Watch Game
+            </a>
+
+        </div>
+
+
+        <div class="victory-card">
+
+            <div class="card-title">
+                FM
+            </div>
+
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/in.png"
+                    alt="India flag"
+                >
+
+                IND
+
+            </div>
+
+            <div class="card-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+        <div class="victory-card">
+
+            <div class="card-title">
+                FM
+            </div>
+
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/lk.png"
+                    alt="Sri Lanka flag"
+                >
+
+                SRI
+
+            </div>
+
+            <div class="card-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
 
         </div>
 
     </div>
 
-
-
-    <!-- ==================================================
-         DESCRIPTION AFTER TITLED VICTORIES
-    ================================================== -->
-
-    <div class="info-split">
-
-        <div class="info-box">
-
-            <p>
-                ...
-            </p>
-
-        </div>
-
-        <div class="info-logo">
-
-            <!-- Replace with your logo -->
-            <img src="victory-logo.png" alt="Chess Logo">
-
-        </div>
-
-    </div>
+</div>
 
 
 
-    <!-- ==================================================
-         SUBSECTION 02
-    ================================================== -->
+<!-- ======================================================
+     SUBSECTION 03 — AGMs
+====================================================== -->
 
-    <div class="subsection">
+<div class="subsection">
 
-        <h3 class="subsection-title">
-            Victories Against National Champions
-        </h3>
-
-
-        <div class="victory-list">
-
-            <div class="victory-header">
-                <div>Title</div>
-                <div>Name / Username</div>
-                <div>Country</div>
-                <div>Rating</div>
-                <div></div>
-            </div>
+    <h3 class="subsection-title">
+        Victories Against AGMs
+    </h3>
 
 
-            <div class="victory-card">
-
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    🇺🇸 USA
-                </div>
-
-                <div class="card-rating">
-                    2345
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                >
-                    Watch Game
-                </a>
-
-            </div>
+    <div class="victory-list">
 
 
-            <div class="victory-card">
+        <div class="victory-header">
 
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    🇮🇳 IND
-                </div>
-
-                <div class="card-rating">
-                    2546
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                >
-                    Watch Game
-                </a>
-
-            </div>
-
-
-            <div class="victory-card">
-
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    🇱🇰 SRI
-                </div>
-
-                <div class="card-rating">
-                    2546
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                >
-                    Watch Game
-                </a>
-
-            </div>
+            <div>Title</div>
+            <div>Name / Username</div>
+            <div>Country</div>
+            <div>Rating</div>
+            <div></div>
 
         </div>
 
-    </div>
 
+        <div class="victory-card">
 
-
-    <!-- ==================================================
-         SUBSECTION 03
-    ================================================== -->
-
-    <div class="subsection">
-
-        <h3 class="subsection-title">
-            Victories Against AGMs
-        </h3>
-
-
-        <div class="victory-list">
-
-            <div class="victory-header">
-                <div>Title</div>
-                <div>Name / Username</div>
-                <div>Country</div>
-                <div>Rating</div>
-                <div></div>
+            <div class="card-title">
+                FM
             </div>
 
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
 
-            <div class="victory-card">
+            <div class="card-country">
 
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    🇺🇸 USA
-                </div>
-
-                <div class="card-rating">
-                    2345
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/us.png"
+                    alt="USA flag"
                 >
-                    Watch Game
-                </a>
+
+                USA
 
             </div>
 
+            <div class="card-rating">
+                2345
+            </div>
 
-            <div class="victory-card">
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
 
-                <div class="card-title">FM</div>
+        </div>
 
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
 
-                <div class="card-country">
-                    🇮🇳 IND
-                </div>
+        <div class="victory-card">
 
-                <div class="card-rating">
-                    2546
-                </div>
+            <div class="card-title">
+                FM
+            </div>
 
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/in.png"
+                    alt="India flag"
                 >
-                    Watch Game
-                </a>
+
+                IND
 
             </div>
 
+            <div class="card-rating">
+                2546
+            </div>
 
-            <div class="victory-card">
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
 
-                <div class="card-title">FM</div>
+        </div>
 
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
 
-                <div class="card-country">
-                    🇱🇰 SRI
-                </div>
+        <div class="victory-card">
 
-                <div class="card-rating">
-                    2546
-                </div>
+            <div class="card-title">
+                FM
+            </div>
 
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/lk.png"
+                    alt="Sri Lanka flag"
                 >
-                    Watch Game
-                </a>
+
+                SRI
 
             </div>
+
+            <div class="card-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
 
         </div>
 
     </div>
 
+</div>
 
 
-    <!-- ==================================================
-         SUBSECTION 04
-    ================================================== -->
 
-    <div class="subsection">
+<!-- ======================================================
+     SUBSECTION 04 — BLITZ
+====================================================== -->
 
-        <h3 class="subsection-title">
-            Titled Victories in Blitz
-        </h3>
+<div class="subsection">
+
+    <h3 class="subsection-title">
+        Titled Victories in Blitz
+    </h3>
 
 
-        <div class="victory-list">
+    <div class="victory-list">
 
-            <div class="victory-header">
-                <div>Title</div>
-                <div>Name / Username</div>
-                <div>Country</div>
-                <div>Rating</div>
-                <div></div>
+
+        <div class="victory-header">
+
+            <div>Title</div>
+            <div>Name / Username</div>
+            <div>Country</div>
+            <div>Rating</div>
+            <div></div>
+
+        </div>
+
+
+        <div class="victory-card">
+
+            <div class="card-title">
+                FM
             </div>
 
-
-            <div class="victory-card">
-
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    🇺🇸 USA
-                </div>
-
-                <div class="card-rating">
-                    2345
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                >
-                    Watch Game
-                </a>
-
+            <div class="card-name">
+                Sunil Weerdjdm
             </div>
 
+            <div class="card-country">
 
-            <div class="victory-card">
-
-                <div class="card-title">FM</div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-                    🇮🇳 IND
-                </div>
-
-                <div class="card-rating">
-                    2546
-                </div>
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/us.png"
+                    alt="USA flag"
                 >
-                    Watch Game
-                </a>
+
+                USA
 
             </div>
 
+            <div class="card-rating">
+                2345
+            </div>
 
-            <div class="victory-card">
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
 
-                <div class="card-title">FM</div>
+        </div>
 
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
 
-                <div class="card-country">
-                    🇱🇰 SRI
-                </div>
+        <div class="victory-card">
 
-                <div class="card-rating">
-                    2546
-                </div>
+            <div class="card-title">
+                FM
+            </div>
 
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/in.png"
+                    alt="India flag"
                 >
-                    Watch Game
-                </a>
 
+                IND
+
+            </div>
+
+            <div class="card-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+        <div class="victory-card">
+
+            <div class="card-title">
+                FM
+            </div>
+
+            <div class="card-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="card-country">
+
+                <img
+                    class="flag"
+                    src="https://flagcdn.com/w40/lk.png"
+                    alt="Sri Lanka flag"
+                >
+
+                SRI
+
+            </div>
+
+            <div class="card-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     SUBSECTION 05 — SUMMARY
+====================================================== -->
+
+<div class="subsection">
+
+    <h3 class="subsection-title">
+        Summary of Titled Victories
+    </h3>
+
+
+    <div class="summary-grid">
+
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                GM · Grandmaster
+            </div>
+
+            <div class="summary-number">
+                05
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                LM · Lichess Master
+            </div>
+
+            <div class="summary-number">
+                02
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                IM · International Master
+            </div>
+
+            <div class="summary-number">
+                03
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                FM · FIDE Master
+            </div>
+
+            <div class="summary-number">
+                06
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                CM · Candidate Master
+            </div>
+
+            <div class="summary-number">
+                22
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                WGM · Woman Grandmaster
+            </div>
+
+            <div class="summary-number">
+                28
             </div>
 
         </div>
 
     </div>
 
+</div>
 
-
-    <!-- ==================================================
-         SUBSECTION 05 — SUMMARY
-    ================================================== -->
-
-    <div class="subsection">
-
-        <h3 class="subsection-title">
-            Summary of Titled Victories
-        </h3>
-
-
-        <div class="summary-grid">
-
-            <div class="summary-card">
-                <div class="summary-title">
-                    GM · Grandmaster
-                </div>
-                <div class="summary-number">05</div>
-            </div>
-
-            <div class="summary-card">
-                <div class="summary-title">
-                    LM · Lichess Master
-                </div>
-                <div class="summary-number">02</div>
-            </div>
-
-            <div class="summary-card">
-                <div class="summary-title">
-                    IM · International Master
-                </div>
-                <div class="summary-number">03</div>
-            </div>
-
-            <div class="summary-card">
-                <div class="summary-title">
-                    FM · FIDE Master
-                </div>
-                <div class="summary-number">06</div>
-            </div>
-
-            <div class="summary-card">
-                <div class="summary-title">
-                    CM · Candidate Master
-                </div>
-                <div class="summary-number">22</div>
-            </div>
-
-            <div class="summary-card">
-                <div class="summary-title">
-                    WGM · Woman Grandmaster
-                </div>
-                <div class="summary-number">28</div>
-            </div>
-
-        </div>
-
-    </div>
 
 </section>
 
@@ -2030,7 +2446,11 @@ footer strong {
      SECTION 03 — LINKS & PROFILES
 ====================================================== -->
 
-<section class="section" id="profiles">
+<section
+    class="section"
+    id="profiles"
+>
+
 
     <div class="section-heading">
 
@@ -2047,13 +2467,16 @@ footer strong {
 
     <div class="profile-grid">
 
+
         <a
             class="profile-card"
             href="#"
             target="_blank"
         >
 
-            <h3>FIDE</h3>
+            <h3>
+                FIDE
+            </h3>
 
             <p>
                 FIDE player profile
@@ -2068,7 +2491,9 @@ footer strong {
             target="_blank"
         >
 
-            <h3>Lichess</h3>
+            <h3>
+                Lichess
+            </h3>
 
             <p>
                 Lichess chess profile
@@ -2083,7 +2508,9 @@ footer strong {
             target="_blank"
         >
 
-            <h3>Chess.com</h3>
+            <h3>
+                Chess.com
+            </h3>
 
             <p>
                 Chess.com profile
@@ -2098,7 +2525,9 @@ footer strong {
             target="_blank"
         >
 
-            <h3>FIDE Online Arena</h3>
+            <h3>
+                FIDE Online Arena
+            </h3>
 
             <p>
                 FIDE Online Arena profile
@@ -2113,7 +2542,9 @@ footer strong {
             target="_blank"
         >
 
-            <h3>YouTube</h3>
+            <h3>
+                YouTube
+            </h3>
 
             <p>
                 Chess videos and games
@@ -2128,13 +2559,16 @@ footer strong {
             target="_blank"
         >
 
-            <h3>Other Profiles</h3>
+            <h3>
+                Other Profiles
+            </h3>
 
             <p>
                 More chess platforms
             </p>
 
         </a>
+
 
     </div>
 
@@ -2151,9 +2585,15 @@ footer strong {
 <footer>
 
     <p>
+
         © 2026
-        <strong>AIM Mihin Mindula Weragama</strong>
+
+        <strong>
+            AIM Mihin Mindula Weragama
+        </strong>
+
         · Chess Portfolio
+
     </p>
 
 </footer>
@@ -2168,13 +2608,17 @@ footer strong {
 
 function scrollToSection(id) {
 
-    const section = document.getElementById(id);
+    const section =
+        document.getElementById(id);
 
     if (section) {
+
         section.scrollIntoView({
             behavior: "smooth"
         });
+
     }
+
 }
 
 
@@ -2189,7 +2633,10 @@ function toggleTheme() {
     const button =
         document.getElementById("themeButton");
 
-    if (document.body.classList.contains("dark")) {
+
+    if (
+        document.body.classList.contains("dark")
+    ) {
 
         button.innerHTML = "☀ Light";
 
@@ -2206,7 +2653,9 @@ function toggleTheme() {
             "chessTheme",
             "light"
         );
+
     }
+
 }
 
 
@@ -2214,26 +2663,31 @@ function toggleTheme() {
    REMEMBER THEME
 ========================================================= */
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    const savedTheme =
-        localStorage.getItem("chessTheme");
+        const savedTheme =
+            localStorage.getItem("chessTheme");
 
-    const button =
-        document.getElementById("themeButton");
+        const button =
+            document.getElementById("themeButton");
 
-    if (savedTheme === "dark") {
 
-        document.body.classList.add("dark");
+        if (savedTheme === "dark") {
 
-        button.innerHTML = "☀ Light";
+            document.body.classList.add("dark");
 
-    } else {
+            button.innerHTML = "☀ Light";
 
-        button.innerHTML = "☾ Dark";
+        } else {
+
+            button.innerHTML = "☾ Dark";
+
+        }
+
     }
-
-});
+);
 
 
 /* =========================================================
@@ -2249,15 +2703,18 @@ function filterVictories() {
         .toLowerCase()
         .trim();
 
+
     const title =
         document
         .getElementById("titleFilter")
         .value;
 
+
     const cards =
         document.querySelectorAll(
             "#titledVictoryList .victory-card"
         );
+
 
     cards.forEach(card => {
 
@@ -2267,20 +2724,27 @@ function filterVictories() {
             .textContent
             .toLowerCase();
 
+
         const playerTitle =
             card
             .querySelector(".card-title")
             .textContent
             .trim();
 
+
         const matchesName =
             playerName.includes(search);
+
 
         const matchesTitle =
             title === "all" ||
             playerTitle === title;
 
-        if (matchesName && matchesTitle) {
+
+        if (
+            matchesName &&
+            matchesTitle
+        ) {
 
             card.style.display = "grid";
 
@@ -2291,6 +2755,7 @@ function filterVictories() {
         }
 
     });
+
 }
 
 
@@ -2300,20 +2765,14 @@ function filterVictories() {
 
 function showMoreVictories() {
 
-    /*
-       When you later provide the complete 100+
-       victories, additional cards can be inserted here.
-
-       The current sample already displays the available
-       entries.
-    */
-
     alert(
         "The complete list of victories will be added here when the full data is available."
     );
+
 }
 
 </script>
+
 
 </body>
 </html>
