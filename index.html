@@ -1,307 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<title>AIM Mihin Mindula Weragama | Chess</title>
 
-<title>AIM Mihin Mindula Weragama | Chess Portfolio</title>
-
-<meta name="description"
-      content="AIM Mihin Mindula Weragama — chess career, achievements, notable victories and profiles.">
-
-
-<!-- =========================================================
-     GOOGLE SANS FONT
-========================================================= -->
-
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Google+Sans+Text:wght@400;500;600;700&display=swap"
-      rel="stylesheet">
-
+<!-- Google Sans / Rounded-style fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Google+Sans+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================================================
-   ROOT VARIABLES
-========================================================= */
-
-:root {
-
-    --bg: #f3f4f5;
-
-    --bg-secondary: #ffffff;
-
-    --card: rgba(255,255,255,0.94);
-
-    --card-solid: #ffffff;
-
-    --text: #303238;
-
-    --muted: #697077;
-
-    --maroon: #762332;
-
-    --maroon-dark: #591823;
-
-    --orange: #d68138;
-
-    --orange-soft:
-        rgba(214,129,56,0.13);
-
-    --border:
-        rgba(45,45,45,0.11);
-
-    --shadow:
-        0 12px 34px rgba(40,42,45,0.08);
-
-    --nav:
-        rgba(255,255,255,0.88);
-}
-
-
-/* =========================================================
-   DARK MODE
-========================================================= */
-
-body.dark {
-
-    --bg: #111315;
-
-    --bg-secondary: #191c1f;
-
-    --card:
-        rgba(28,31,34,0.95);
-
-    --card-solid: #1d2023;
-
-    --text: #f0f1f2;
-
-    --muted: #adb4b9;
-
-    --maroon: #d15a6d;
-
-    --maroon-dark: #a94151;
-
-    --orange: #e39a55;
-
-    --orange-soft:
-        rgba(227,154,85,0.13);
-
-    --border:
-        rgba(255,255,255,0.10);
-
-    --shadow:
-        0 18px 45px rgba(0,0,0,0.34);
-
-    --nav:
-        rgba(20,23,25,0.90);
-}
-
 
 /* =========================================================
    GLOBAL
 ========================================================= */
 
-* {
-    box-sizing: border-box;
+:root {
+    --bg-main: #f4f4f4;
+    --bg-secondary: #ffffff;
+    --bg-card: rgba(255,255,255,0.88);
+
+    --text-main: #292929;
+    --text-secondary: #626262;
+    --text-muted: #858585;
+
+    --accent: #641f2d;
+    --accent-light: #8b4352;
+
+    --border: rgba(0,0,0,0.08);
+
+    --shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
+    --radius-large: 26px;
+    --radius-medium: 18px;
+    --radius-small: 12px;
+
+    --max-width: 1180px;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
+    font-family: "Google Sans Text", "Google Sans", Arial, sans-serif;
 
-    margin: 0;
+    color: var(--text-main);
 
-    color: var(--text);
-
-    font-family:
-        "Google Sans Text",
-        "Google Sans",
-        Arial,
-        sans-serif;
+    min-height: 100vh;
 
     background:
-
-        radial-gradient(
-            circle at 8% 9%,
-            rgba(118,35,50,0.11),
-            transparent 24%
-        ),
-
-        radial-gradient(
-            circle at 91% 16%,
-            rgba(214,129,56,0.13),
-            transparent 25%
-        ),
-
         linear-gradient(
             135deg,
-            var(--bg),
-            var(--bg-secondary)
+            #ffffff 0%,
+            #f5f5f5 38%,
+            #e4e4e4 100%
         );
+
+    position: relative;
 
     overflow-x: hidden;
 
     transition:
-        background .3s ease,
-        color .3s ease;
+        background 0.4s ease,
+        color 0.4s ease;
 }
 
 
 /* =========================================================
-   CHESS BOARD BACKGROUND
+   SUBTLE CHESSBOARD BACKGROUND
 ========================================================= */
 
 body::before {
-
     content: "";
 
     position: fixed;
 
     inset: 0;
 
-    z-index: -30;
+    z-index: -3;
 
-    opacity: .14;
+    opacity: 0.22;
 
     background-image:
-
         linear-gradient(
             45deg,
-            #aeb4b8 25%,
-            transparent 25%
+            rgba(80,80,80,0.10) 25%,
+            transparent 25%,
+            transparent 75%,
+            rgba(80,80,80,0.10) 75%
         ),
-
-        linear-gradient(
-            -45deg,
-            #aeb4b8 25%,
-            transparent 25%
-        ),
-
         linear-gradient(
             45deg,
+            rgba(80,80,80,0.10) 25%,
+            transparent 25%,
             transparent 75%,
-            #aeb4b8 75%
-        ),
-
-        linear-gradient(
-            -45deg,
-            transparent 75%,
-            #aeb4b8 75%
+            rgba(80,80,80,0.10) 75%
         );
-
-    background-size:
-        105px 105px;
 
     background-position:
         0 0,
-        0 52px,
-        52px -52px,
-        -52px 0;
+        45px 45px;
 
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent 92%
-        );
-}
-
-
-body.dark::before {
-
-    opacity: .045;
-
-    filter: invert(1);
-}
-
-
-/* =========================================================
-   BACKGROUND ART
-========================================================= */
-
-.background-art {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: -20;
-
-    overflow: hidden;
+    background-size:
+        90px 90px;
 
     pointer-events: none;
-}
-
-
-.glow {
-
-    position: absolute;
-
-    border-radius: 50%;
-
-    filter: blur(3px);
-
-    border:
-        1px solid
-        rgba(118,35,50,.12);
-}
-
-
-.glow.one {
-
-    width: 440px;
-
-    height: 440px;
-
-    left: -220px;
-
-    top: 22%;
-
-    box-shadow:
-
-        0 0 0 45px
-        rgba(118,35,50,.025),
-
-        0 0 0 95px
-        rgba(214,129,56,.025);
-}
-
-
-.glow.two {
-
-    width: 510px;
-
-    height: 510px;
-
-    right: -260px;
-
-    top: 48%;
-
-    border-color:
-        rgba(214,129,56,.16);
-
-    box-shadow:
-
-        0 0 0 45px
-        rgba(214,129,56,.025),
-
-        0 0 0 95px
-        rgba(118,35,50,.02);
 }
 
 
@@ -309,240 +122,78 @@ body.dark::before {
    FLOATING CHESS PIECES
 ========================================================= */
 
-.piece {
+.chess-piece {
+    position: fixed;
 
-    position: absolute;
+    z-index: -1;
 
-    color: var(--maroon);
-
-    opacity: .055;
+    color: rgba(80,80,80,0.055);
 
     font-family: Georgia, serif;
 
-    text-shadow:
-        0 0 25px
-        rgba(118,35,50,.16);
+    pointer-events: none;
+
+    user-select: none;
 
     animation:
-        floatPiece 13s
-        ease-in-out infinite;
-
-    pointer-events: none;
+        floatingPiece 10s ease-in-out infinite;
 }
 
-
-/* LEFT SIDE */
-
-.piece:nth-child(1) {
-
+.piece-1 {
+    top: 13%;
     left: 2%;
-
-    top: 10%;
-
-    font-size: 105px;
-}
-
-
-.piece:nth-child(3) {
-
-    left: 5%;
-
-    top: 32%;
-
-    font-size: 72px;
-}
-
-
-.piece:nth-child(7) {
-
-    left: 2%;
-
-    top: 58%;
-
     font-size: 120px;
+    animation-delay: 0s;
 }
 
-
-.piece:nth-child(10) {
-
-    left: 8%;
-
-    top: 78%;
-
-    font-size: 68px;
-}
-
-
-.piece:nth-child(12) {
-
-    left: 19%;
-
-    top: 43%;
-
-    font-size: 52px;
-}
-
-
-/* RIGHT SIDE */
-
-.piece:nth-child(2) {
-
-    right: 2%;
-
-    top: 12%;
-
-    font-size: 125px;
-}
-
-
-.piece:nth-child(4) {
-
-    right: 7%;
-
+.piece-2 {
     top: 34%;
-
-    font-size: 75px;
-}
-
-
-.piece:nth-child(6) {
-
     right: 2%;
-
-    top: 57%;
-
-    font-size: 110px;
+    font-size: 150px;
+    animation-delay: 2s;
 }
 
-
-.piece:nth-child(9) {
-
-    right: 8%;
-
-    top: 78%;
-
-    font-size: 72px;
+.piece-3 {
+    top: 66%;
+    left: 4%;
+    font-size: 105px;
+    animation-delay: 4s;
 }
 
-
-.piece:nth-child(11) {
-
-    right: 20%;
-
-    top: 43%;
-
-    font-size: 52px;
+.piece-4 {
+    top: 79%;
+    right: 5%;
+    font-size: 130px;
+    animation-delay: 1s;
 }
 
-
-/* CENTER / SUBTLE */
-
-.piece:nth-child(5) {
-
-    left: 39%;
-
-    top: 17%;
-
-    font-size: 50px;
-
-    opacity: .025;
+.piece-5 {
+    top: 52%;
+    right: 42%;
+    font-size: 80px;
+    animation-delay: 5s;
 }
 
-
-.piece:nth-child(8) {
-
-    right: 39%;
-
-    top: 65%;
-
-    font-size: 58px;
-
-    opacity: .025;
-}
-
-
-.piece:nth-child(13) {
-
-    left: 27%;
-
-    top: 88%;
-
-    font-size: 65px;
-
-    color: var(--orange);
-
-    opacity: .035;
-}
-
-
-.piece:nth-child(14) {
-
+.piece-6 {
+    top: 19%;
     right: 28%;
-
-    top: 89%;
-
-    font-size: 60px;
-
-    color: var(--orange);
-
-    opacity: .035;
+    font-size: 70px;
+    animation-delay: 3s;
 }
 
+@keyframes floatingPiece {
 
-.piece:nth-child(15) {
-
-    left: 31%;
-
-    top: 8%;
-
-    font-size: 48px;
-
-    opacity: .025;
-}
-
-
-.piece:nth-child(16) {
-
-    right: 31%;
-
-    top: 30%;
-
-    font-size: 55px;
-
-    opacity: .025;
-}
-
-
-@keyframes floatPiece {
-
-    0%,
-    100% {
-
-        transform:
-            translateY(0)
-            rotate(-3deg);
+    0% {
+        transform: translateY(0px) rotate(0deg);
     }
 
     50% {
-
-        transform:
-            translateY(-20px)
-            rotate(3deg);
+        transform: translateY(-18px) rotate(4deg);
     }
-}
 
-
-/* =========================================================
-   MAIN CONTAINER
-========================================================= */
-
-.container {
-
-    width:
-        min(1320px, 94%);
-
-    margin:
-        0 auto;
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
 }
 
 
@@ -551,607 +202,445 @@ body.dark::before {
 ========================================================= */
 
 header {
-
     position: sticky;
 
     top: 0;
 
-    z-index: 1000;
+    z-index: 100;
 
-    background:
-        var(--nav);
+    width: 100%;
 
-    backdrop-filter:
-        blur(18px);
+    background: rgba(255,255,255,0.78);
 
-    border-bottom:
-        1px solid
-        var(--border);
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--border);
 }
-
 
 .navbar {
 
-    min-height: 78px;
+    max-width: var(--max-width);
+
+    margin: auto;
+
+    height: 76px;
 
     display: flex;
 
     align-items: center;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    gap: 25px;
+    padding: 0 24px;
 }
 
 
-.main-logo {
+/* LOGO */
 
-    width: 58px;
+.logo-area {
 
-    height: 58px;
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.logo-area img {
+
+    width: 48px;
+
+    height: 48px;
 
     object-fit: contain;
 
-    border-radius: 18px;
-
-    border:
-        2px solid
-        var(--maroon);
-
-    background:
-        var(--card-solid);
-
-    padding: 5px;
+    border-radius: 12px;
 }
 
 
-.navigation {
+/* NAVIGATION */
+
+.nav-links {
 
     display: flex;
 
-    justify-content:
-        flex-end;
-
     align-items: center;
 
-    gap: 8px;
+    gap: 7px;
 
-    flex-wrap: wrap;
+    list-style: none;
 }
 
-
-.nav-button {
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        var(--card);
-
-    color:
-        var(--text);
-
-    padding:
-        10px 15px;
-
-    border-radius:
-        999px;
-
-    font:
-        600 14px
-        "Google Sans Text",
-        sans-serif;
+.nav-links a {
 
     text-decoration: none;
 
-    cursor: pointer;
+    color: var(--text-main);
 
-    transition: .2s;
+    font-weight: 600;
+
+    font-size: 14px;
+
+    padding: 10px 14px;
+
+    border-radius: 12px;
+
+    transition: all 0.25s ease;
+}
+
+.nav-links a:hover {
+
+    background: rgba(100,100,100,0.09);
+
+    color: var(--accent);
 }
 
 
-.nav-button:hover {
+/* THEME BUTTON */
 
-    color:
-        var(--maroon);
+.theme-button {
 
-    border-color:
-        var(--maroon);
+    border: none;
 
-    transform:
-        translateY(-2px);
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #eeeeee;
+
+    color: #333;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    margin-left: 8px;
+
+    transition: all 0.25s ease;
+}
+
+.theme-button:hover {
+
+    transform: rotate(15deg);
+
+    background: #dddddd;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+main {
+
+    width: 100%;
+
+    max-width: var(--max-width);
+
+    margin: auto;
+
+    padding: 55px 24px 100px;
 }
 
 
 /* =========================================================
    INTRODUCTION
-   ONLY THIS SECTION HAS THE WIDE LAYOUT
 ========================================================= */
 
-.hero {
+.introduction {
 
-    padding:
-        80px 0 70px;
-}
+    width: 100%;
 
-
-.hero-grid {
+    min-height: 540px;
 
     display: grid;
 
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(390px, 440px);
+    grid-template-columns: minmax(0, 1.25fr) minmax(360px, 0.75fr);
 
-    column-gap:
-        clamp(
-            75px,
-            9vw,
-            155px
-        );
+    gap: 80px;
 
-    align-items:
-        center;
+    align-items: center;
+
+    margin-bottom: 90px;
 }
 
 
-.hero-content {
+/* LEFT SIDE */
 
-    min-width: 0;
+.intro-content {
 
     padding-left: 0;
+
+    max-width: 700px;
 }
 
 
-.hero-label {
+/* MAIN NAME */
 
-    color:
-        var(--maroon);
+.main-heading {
 
-    font:
-        700 13px
-        "Google Sans",
-        sans-serif;
+    font-family: "Google Sans", "Google Sans Text", sans-serif;
 
-    letter-spacing:
-        .15em;
+    font-size: clamp(42px, 5vw, 64px);
 
-    text-transform:
-        uppercase;
+    line-height: 1.08;
+
+    font-weight: 700;
+
+    letter-spacing: -1.8px;
+
+    margin-bottom: 25px;
+
+    color: #303030;
+}
+
+.main-heading .title {
+
+    color: var(--accent);
+
+    margin-right: 10px;
+}
+
+.main-heading .name {
+
+    color: #303030;
 }
 
 
-.hero h1 {
+/* BIO */
 
-    margin:
-        14px 0 23px;
+.intro-description {
 
-    font-family:
-        "Google Sans",
-        "Google Sans Text",
-        sans-serif;
+    color: var(--text-secondary);
 
-    /*
-       REDUCED FROM THE PREVIOUS VERSION
-    */
+    font-size: 17px;
 
-    font-size:
-        clamp(
-            38px,
-            3.8vw,
-            58px
-        );
+    line-height: 1.75;
 
-    line-height:
-        1.04;
+    max-width: 650px;
 
-    letter-spacing:
-        -.045em;
+    margin-bottom: 28px;
+}
 
-    font-weight:
-        700;
+.intro-description h3 {
 
-    white-space:
-        nowrap;
+    font-family: "Google Sans", sans-serif;
+
+    color: #383838;
+
+    font-size: 25px;
+
+    margin-bottom: 12px;
+
+    font-weight: 700;
 }
 
 
-.hero-title {
+/* CAREER */
 
-    color:
-        var(--maroon);
+.career-list {
+
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.career-list li {
+
+    position: relative;
+
+    padding-left: 24px;
+
+    color: var(--text-secondary);
+
+    font-size: 16px;
+
+    line-height: 1.55;
+}
+
+.career-list li::before {
+
+    content: "♟";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    color: var(--accent);
+
+    font-size: 15px;
 }
 
 
-.hero-name {
+/* INTRO PHOTO */
 
-    color:
-        var(--text);
-}
+.intro-photo {
 
+    width: 100%;
 
-.hero-question {
+    max-width: 440px;
 
-    margin:
-        25px 0 7px;
+    justify-self: end;
 
-    font:
-        700 22px
-        "Google Sans",
-        sans-serif;
-}
+    aspect-ratio: 1 / 1;
 
+    border-radius: 26px;
 
-.hero-text {
+    overflow: hidden;
 
-    max-width:
-        780px;
-
-    color:
-        var(--muted);
-
-    font:
-        400 17px/1.8
-        "Google Sans Text",
-        sans-serif;
-}
-
-
-/* =========================================================
-   SQUARE PROFILE PHOTO
-========================================================= */
-
-.hero-photo {
-
-    width:
-        min(100%, 420px);
-
-    aspect-ratio:
-        1 / 1;
-
-    justify-self:
-        end;
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-
-    border-radius:
-        30px;
-
-    background:
-        var(--card);
-
-    border:
-        1px solid
-        var(--border);
+    background: #e4e4e4;
 
     box-shadow:
-        var(--shadow);
+        0 25px 60px rgba(0,0,0,0.14);
+
+    border: 1px solid rgba(0,0,0,0.08);
 }
 
+.intro-photo img {
 
-.hero-photo::before {
+    width: 100%;
 
-    content: "";
+    height: 100%;
 
-    position:
-        absolute;
+    object-fit: cover;
 
-    inset:
-        13px;
-
-    border:
-        1px solid
-        rgba(118,35,50,.28);
-
-    border-radius:
-        22px;
-
-    z-index:
-        2;
-
-    pointer-events:
-        none;
-}
-
-
-.hero-photo img {
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    object-fit:
-        cover;
-
-    display:
-        block;
-}
-
-
-.image-placeholder {
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    text-align:
-        center;
-
-    padding:
-        30px;
-
-    color:
-        var(--muted);
-}
-
-
-.image-placeholder strong {
-
-    display:
-        block;
-
-    color:
-        var(--maroon);
-
-    font:
-        700 22px
-        "Google Sans",
-        sans-serif;
-
-    margin-bottom:
-        7px;
+    display: block;
 }
 
 
 /* =========================================================
-   SECTIONS
+   GENERAL SECTION
 ========================================================= */
 
-section {
+.section {
 
-    padding:
-        70px 0;
+    margin-bottom: 90px;
 }
 
+.section-heading {
 
-.section-top {
+    font-family: "Google Sans", sans-serif;
 
-    display:
-        flex;
+    font-size: 42px;
 
-    justify-content:
-        space-between;
+    font-weight: 700;
 
-    align-items:
-        flex-end;
+    letter-spacing: -0.8px;
 
-    gap:
-        25px;
+    color: #303030;
 
-    margin-bottom:
-        28px;
+    margin-bottom: 42px;
 }
 
+.subheading {
 
-.section-label {
+    font-family: "Google Sans", sans-serif;
 
-    color:
-        var(--maroon);
+    font-size: 28px;
 
-    font:
-        700 12px
-        "Google Sans",
-        sans-serif;
+    font-weight: 700;
 
-    letter-spacing:
-        .14em;
+    color: #333;
 
-    text-transform:
-        uppercase;
-}
-
-
-h2 {
-
-    margin:
-        7px 0 0;
-
-    font:
-        700
-        clamp(34px,3.7vw,50px)
-        /1.05
-        "Google Sans",
-        sans-serif;
-
-    letter-spacing:
-        -.04em;
-}
-
-
-.section-description {
-
-    max-width:
-        600px;
-
-    color:
-        var(--muted);
-
-    font:
-        400 16px/1.7
-        "Google Sans Text",
-        sans-serif;
+    margin-bottom: 18px;
 }
 
 
 /* =========================================================
-   FEATURED VICTORIES
+   TOP VICTORIES
 ========================================================= */
 
-.featured-victories {
+.top-victories {
 
-    display:
-        grid;
+    display: grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
 
-    gap:
-        14px;
+    gap: 20px;
+
+    margin-bottom: 55px;
 }
 
+.top-victory {
 
-.featured-card {
+    background: var(--bg-card);
 
-    display:
-        flex;
+    border: 1px solid var(--border);
 
-    align-items:
-        center;
+    border-radius: var(--radius-medium);
 
-    gap:
-        16px;
+    padding: 22px 25px;
 
-    padding:
-        19px;
-
-    border-radius:
-        21px;
-
-    background:
-        var(--card);
-
-    border:
-        1px solid
-        var(--border);
-
-    box-shadow:
-        var(--shadow);
+    box-shadow: var(--shadow);
 
     transition:
-        .25s;
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
+.top-victory:hover {
 
-.featured-card:hover {
+    transform: translateY(-3px);
 
-    transform:
-        translateY(-3px);
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.11);
 }
 
+.top-victory-title {
 
-.featured-badge {
+    font-family: "Google Sans", sans-serif;
 
-    width:
-        57px;
+    color: var(--accent);
 
-    height:
-        57px;
+    font-size: 14px;
 
-    flex-shrink:
-        0;
+    font-weight: 700;
 
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    border-radius:
-        17px;
-
-    background:
-        var(--maroon);
-
-    color:
-        #fff;
-
-    font:
-        700 15px
-        "Google Sans",
-        sans-serif;
+    margin-bottom: 7px;
 }
 
+.top-victory-name {
 
-.featured-card h3 {
+    font-size: 20px;
 
-    margin:
-        0 0 4px;
+    font-weight: 700;
 
-    font:
-        700 19px
-        "Google Sans",
-        sans-serif;
-}
-
-
-.featured-card p {
-
-    margin:
-        0;
-
-    color:
-        var(--muted);
-
-    font-size:
-        14px;
+    color: #333;
 }
 
 
 /* =========================================================
-   SUBSECTIONS
+   VICTORY SUBSECTION
 ========================================================= */
 
-.subsection {
+.victory-section {
 
-    margin-top:
-        42px;
+    margin-top: 50px;
 }
 
+.victory-section-header {
 
-.subsection-heading {
+    display: flex;
 
-    display:
-        flex;
+    align-items: center;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    align-items:
-        center;
+    gap: 20px;
 
-    gap:
-        18px;
+    margin-bottom: 22px;
 
-    margin-bottom:
-        12px;
-}
-
-
-.subsection-heading h3 {
-
-    margin:
-        0;
-
-    font:
-        700 24px
-        "Google Sans",
-        sans-serif;
+    flex-wrap: wrap;
 }
 
 
@@ -1161,287 +650,253 @@ h2 {
 
 .controls {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    gap: 10px;
 
-    justify-content:
-        flex-end;
+    flex-wrap: wrap;
 
-    gap:
-        8px;
-
-    flex-wrap:
-        wrap;
+    justify-content: flex-end;
 }
 
+.search-box,
+.title-filter {
+
+    border: 1px solid rgba(0,0,0,0.12);
+
+    background: rgba(255,255,255,0.92);
+
+    color: #333;
+
+    height: 42px;
+
+    border-radius: 12px;
+
+    padding: 0 14px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
 
 .search-box {
 
-    width:
-        min(270px,100%);
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        var(--card-solid);
-
-    color:
-        var(--text);
-
-    border-radius:
-        999px;
-
-    padding:
-        9px 15px;
-
-    outline:
-        none;
-
-    font:
-        500 14px
-        "Google Sans Text",
-        sans-serif;
+    width: 230px;
 }
 
+.title-filter {
 
-.search-box:focus {
+    width: 150px;
+}
 
-    border-color:
-        var(--maroon);
+.search-box:focus,
+.title-filter:focus {
+
+    border-color: var(--accent);
 
     box-shadow:
-        0 0 0 3px
-        rgba(118,35,50,.08);
-}
-
-
-select {
-
-    background:
-        var(--card-solid);
-
-    color:
-        var(--text);
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        999px;
-
-    padding:
-        9px 13px;
-
-    outline:
-        none;
-
-    cursor:
-        pointer;
-
-    font:
-        600 14px
-        "Google Sans Text",
-        sans-serif;
+        0 0 0 3px rgba(100,31,45,0.08);
 }
 
 
 /* =========================================================
-   VICTORY TABLE HEADER
+   VICTORY LIST HEADER
 ========================================================= */
 
-.victory-header {
+.victory-list-header {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        55px
-        minmax(0, 1fr)
-        75px
-        65px
-        105px;
+        80px
+        minmax(180px, 1fr)
+        120px
+        90px
+        125px;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        8px;
+    gap: 14px;
 
-    padding:
-        0 10px 7px;
+    padding: 0 18px 10px;
 
-    color:
-        var(--muted);
+    color: #777;
 
-    font:
-        600 11px
-        "Google Sans Text",
-        sans-serif;
+    font-size: 12px;
 
-    text-transform:
-        uppercase;
+    font-weight: 700;
 
-    letter-spacing:
-        .04em;
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
 }
 
 
 /* =========================================================
-   COMPACT VICTORY CARDS
+   VICTORY CARD
 ========================================================= */
 
 .victory-list {
 
-    display:
-        grid;
+    display: flex;
 
-    gap:
-        5px;
+    flex-direction: column;
+
+    gap: 9px;
 }
-
 
 .victory-card {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        55px
-        minmax(0, 1fr)
-        75px
-        65px
-        105px;
+        80px
+        minmax(180px, 1fr)
+        120px
+        90px
+        125px;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        8px;
+    gap: 14px;
 
-    min-height:
-        50px;
+    padding: 13px 18px;
 
-    padding:
-        7px 10px;
+    min-height: 58px;
 
-    background:
-        var(--card);
+    background: var(--bg-card);
 
-    border:
-        1px solid
-        var(--border);
+    border: 1px solid var(--border);
 
-    border-radius:
-        12px;
+    border-radius: 14px;
 
     box-shadow:
-        0 3px 11px
-        rgba(0,0,0,.035);
+        0 4px 15px rgba(0,0,0,0.045);
 
     transition:
-        .18s;
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
-
 
 .victory-card:hover {
 
-    transform:
-        translateY(-1px);
+    transform: translateY(-2px);
 
-    border-color:
-        rgba(118,35,50,.22);
+    box-shadow:
+        0 9px 24px rgba(0,0,0,0.08);
 }
 
+
+/* TITLE */
 
 .player-title {
 
-    color:
-        var(--maroon);
+    color: var(--accent);
 
-    font:
-        700 14px
-        "Google Sans",
-        sans-serif;
+    font-family: "Google Sans", sans-serif;
+
+    font-weight: 700;
+
+    font-size: 14px;
 }
 
+
+/* PLAYER NAME */
 
 .player-name {
 
-    min-width:
-        0;
+    font-weight: 600;
 
-    overflow:
-        hidden;
+    color: #333;
 
-    text-overflow:
-        ellipsis;
+    white-space: nowrap;
 
-    white-space:
-        nowrap;
+    overflow: hidden;
 
-    font:
-        600 14px
-        "Google Sans Text",
-        sans-serif;
+    text-overflow: ellipsis;
 }
 
 
-.player-country,
+/* COUNTRY */
+
+.player-country {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 14px;
+
+    color: #555;
+}
+
+.flag {
+
+    font-size: 19px;
+}
+
+
+/* RATING */
+
 .player-rating {
 
-    font:
-        500 13px
-        "Google Sans Text",
-        sans-serif;
+    font-weight: 600;
 
-    white-space:
-        nowrap;
+    font-size: 14px;
+
+    color: #555;
 }
 
 
-.watch-game {
+/* WATCH BUTTON */
 
-    display:
-        inline-block;
+.watch-button {
 
-    text-align:
-        center;
+    display: inline-flex;
 
-    text-decoration:
-        none;
+    align-items: center;
 
-    background:
-        var(--maroon);
+    justify-content: center;
 
-    color:
-        #fff;
+    text-decoration: none;
 
-    padding:
-        6px 9px;
+    background: #333;
 
-    border-radius:
-        8px;
+    color: white;
 
-    font:
-        600 11px
-        "Google Sans Text",
-        sans-serif;
+    border-radius: 10px;
 
-    transition:
-        .2s;
+    min-height: 36px;
+
+    padding: 0 13px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition: all 0.2s ease;
 }
 
+.watch-button:hover {
 
-.watch-game:hover {
+    background: var(--accent);
 
-    background:
-        var(--maroon-dark);
+    transform: translateY(-1px);
+}
+
+.watch-button.disabled {
+
+    opacity: 0.4;
+
+    pointer-events: none;
 }
 
 
@@ -1451,49 +906,37 @@ select {
 
 .see-more-container {
 
-    text-align:
-        center;
+    text-align: center;
 
-    margin-top:
-        14px;
+    margin-top: 22px;
 }
-
 
 .see-more {
 
-    border:
-        1px solid
-        var(--maroon);
+    border: none;
 
-    background:
-        transparent;
+    background: #333;
 
-    color:
-        var(--maroon);
+    color: white;
 
-    border-radius:
-        999px;
+    border-radius: 12px;
 
-    padding:
-        8px 18px;
+    padding: 11px 22px;
 
-    font:
-        600 14px
-        "Google Sans Text",
-        sans-serif;
+    font-family: inherit;
 
-    cursor:
-        pointer;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
 }
-
 
 .see-more:hover {
 
-    background:
-        var(--maroon);
+    background: var(--accent);
 
-    color:
-        #fff;
+    transform: translateY(-2px);
 }
 
 
@@ -1501,96 +944,54 @@ select {
    DESCRIPTION + LOGO
 ========================================================= */
 
-.description-logo {
+.info-block {
 
-    display:
-        grid;
+    display: grid;
 
-    grid-template-columns:
-        1fr .75fr;
+    grid-template-columns: 1fr 300px;
 
-    overflow:
-        hidden;
+    gap: 50px;
 
-    background:
-        var(--card);
+    align-items: center;
 
-    border:
-        1px solid
-        var(--border);
+    margin-top: 40px;
 
-    border-radius:
-        22px;
-
-    box-shadow:
-        var(--shadow);
+    margin-bottom: 60px;
 }
 
+.info-text {
 
-.description-content {
+    color: var(--text-secondary);
 
-    padding:
-        31px;
+    font-size: 16px;
+
+    line-height: 1.75;
 }
 
+.info-logo {
 
-.description-content h3 {
+    display: flex;
 
-    margin:
-        7px 0 8px;
+    align-items: center;
 
-    font:
-        700 24px
-        "Google Sans",
-        sans-serif;
+    justify-content: center;
+
+    min-height: 200px;
+
+    border-radius: 22px;
+
+    background: rgba(255,255,255,0.55);
+
+    border: 1px solid var(--border);
 }
 
+.info-logo img {
 
-.description-content p {
+    max-width: 180px;
 
-    color:
-        var(--muted);
+    max-height: 150px;
 
-    font:
-        400 16px/1.8
-        "Google Sans Text",
-        sans-serif;
-}
-
-
-.description-image {
-
-    min-height:
-        220px;
-
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    padding:
-        25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--orange-soft),
-            rgba(118,35,50,.06)
-        );
-}
-
-
-.description-image img {
-
-    max-width:
-        180px;
-
-    max-height:
-        180px;
-
-    object-fit:
-        contain;
+    object-fit: contain;
 }
 
 
@@ -1600,136 +1001,106 @@ select {
 
 .summary-grid {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(3, 1fr);
 
-    gap:
-        11px;
+    gap: 14px;
+
+    margin-top: 25px;
 }
-
 
 .summary-card {
 
-    background:
-        var(--card);
+    background: var(--bg-card);
 
-    border:
-        1px solid
-        var(--border);
+    border: 1px solid var(--border);
 
-    border-radius:
-        17px;
+    border-radius: 15px;
 
-    padding:
-        18px;
+    padding: 19px;
 
-    box-shadow:
-        0 6px 20px
-        rgba(0,0,0,.04);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.05);
 }
-
 
 .summary-title {
 
-    color:
-        var(--muted);
+    color: var(--text-secondary);
 
-    font:
-        500 13px
-        "Google Sans Text",
-        sans-serif;
+    font-size: 14px;
+
+    line-height: 1.4;
+
+    margin-bottom: 8px;
 }
-
 
 .summary-number {
 
-    color:
-        var(--maroon);
+    font-family: "Google Sans", sans-serif;
 
-    margin-top:
-        3px;
+    font-size: 28px;
 
-    font:
-        700 34px
-        "Google Sans",
-        sans-serif;
+    font-weight: 700;
+
+    color: var(--accent);
 }
 
 
 /* =========================================================
-   PROFILE SECTION
+   LINKS & PROFILES
 ========================================================= */
 
 .profile-grid {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(3, 1fr);
 
-    gap:
-        14px;
+    gap: 18px;
 }
-
 
 .profile-card {
 
-    background:
-        var(--card);
+    display: flex;
 
-    border:
-        1px solid
-        var(--border);
+    align-items: center;
 
-    border-radius:
-        19px;
+    justify-content: space-between;
 
-    padding:
-        21px;
+    padding: 20px;
 
-    box-shadow:
-        var(--shadow);
+    text-decoration: none;
+
+    color: #333;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 17px;
+
+    box-shadow: var(--shadow);
+
+    transition: all 0.25s ease;
 }
 
+.profile-card:hover {
 
-.profile-card h3 {
+    transform: translateY(-3px);
 
-    margin-top:
-        0;
-
-    font:
-        700 19px
-        "Google Sans",
-        sans-serif;
+    color: var(--accent);
 }
 
+.profile-name {
 
-.profile-card p {
-
-    color:
-        var(--muted);
-
-    line-height:
-        1.6;
+    font-weight: 600;
 }
 
+.profile-arrow {
 
-.profile-card a {
-
-    color:
-        var(--maroon);
-
-    font:
-        700 14px
-        "Google Sans Text",
-        sans-serif;
-
-    text-decoration:
-        none;
+    font-size: 20px;
 }
 
 
@@ -1739,286 +1110,299 @@ select {
 
 footer {
 
-    padding:
-        45px 0 58px;
+    text-align: center;
 
-    border-top:
-        1px solid
-        var(--border);
+    padding: 40px 20px;
 
-    text-align:
-        center;
+    color: #888;
 
-    color:
-        var(--muted);
-}
+    font-size: 13px;
 
-
-footer strong {
-
-    color:
-        var(--maroon);
-
-    font:
-        700 16px
-        "Google Sans",
-        sans-serif;
+    border-top: 1px solid var(--border);
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   DARK MODE
 ========================================================= */
 
-@media(max-width:1050px) {
+body.dark {
 
-    .hero-grid {
+    --bg-main: #151515;
 
-        grid-template-columns:
-            minmax(0,1fr)
-            350px;
+    --bg-secondary: #1d1d1d;
 
-        column-gap:
-            55px;
-    }
+    --bg-card: rgba(30,30,30,0.90);
 
+    --text-main: #eeeeee;
 
-    .hero h1 {
+    --text-secondary: #bdbdbd;
 
-        font-size:
-            clamp(
-                36px,
-                4vw,
-                52px
-            );
-    }
+    --text-muted: #999;
 
+    --border: rgba(255,255,255,0.08);
 
-    .victory-header,
-    .victory-card {
+    --shadow:
+        0 10px 35px rgba(0,0,0,0.30);
 
-        grid-template-columns:
-            50px
-            minmax(0,1fr)
-            68px
-            60px
-            98px;
-    }
+    background:
+        linear-gradient(
+            135deg,
+            #202020 0%,
+            #171717 50%,
+            #101010 100%
+        );
+}
+
+body.dark::before {
+
+    opacity: 0.10;
+}
+
+body.dark .main-heading .name,
+body.dark .main-heading,
+body.dark .section-heading,
+body.dark .subheading {
+
+    color: #eeeeee;
+}
+
+body.dark .intro-description h3 {
+
+    color: #eeeeee;
+}
+
+body.dark header {
+
+    background: rgba(25,25,25,0.82);
+}
+
+body.dark .nav-links a {
+
+    color: #eeeeee;
+}
+
+body.dark .theme-button {
+
+    background: #333;
+
+    color: #eeeeee;
+}
+
+body.dark .search-box,
+body.dark .title-filter {
+
+    background: #242424;
+
+    color: #eeeeee;
+
+    border-color: rgba(255,255,255,0.12);
+}
+
+body.dark .player-name {
+
+    color: #eeeeee;
+}
+
+body.dark .player-country,
+body.dark .player-rating {
+
+    color: #c0c0c0;
+}
+
+body.dark .info-logo {
+
+    background: rgba(255,255,255,0.04);
+}
+
+body.dark .profile-card {
+
+    color: #eeeeee;
 }
 
 
-@media(max-width:850px) {
+/* =========================================================
+   MOBILE
+========================================================= */
 
-    .hero-grid {
+@media (max-width: 900px) {
 
-        grid-template-columns:
-            1fr;
+    .introduction {
 
-        gap:
-            38px;
+        grid-template-columns: 1fr;
+
+        gap: 45px;
     }
 
+    .intro-content {
 
-    .hero h1 {
-
-        white-space:
-            normal;
+        max-width: none;
     }
 
+    .intro-photo {
 
-    .hero-photo {
+        justify-self: center;
 
-        justify-self:
-            center;
-
-        width:
-            min(100%,420px);
+        max-width: 400px;
     }
 
+    .top-victories {
 
-    .featured-victories,
-    .description-logo,
-    .profile-grid {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
-
 
     .summary-grid {
 
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(2, 1fr);
     }
 
+    .profile-grid {
 
-    .subsection-heading {
-
-        flex-direction:
-            column;
-
-        align-items:
-            flex-start;
+        grid-template-columns: 1fr;
     }
 
+    .info-block {
+
+        grid-template-columns: 1fr;
+    }
+
+    .info-logo {
+
+        min-height: 170px;
+    }
+
+    .victory-list-header {
+
+        display: none;
+    }
+
+    .victory-card {
+
+        grid-template-columns:
+            55px
+            1fr
+            auto
+            auto;
+
+        gap: 10px;
+
+        padding: 13px 14px;
+    }
+
+    .player-country {
+
+        justify-content: center;
+    }
+
+    .player-rating {
+
+        display: none;
+    }
+
+    .watch-button {
+
+        padding: 0 10px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+
+        padding: 0 15px;
+    }
+
+    .nav-links {
+
+        display: none;
+    }
+
+    main {
+
+        padding:
+            35px 16px 70px;
+    }
+
+    .main-heading {
+
+        font-size: 39px;
+
+        letter-spacing: -1px;
+    }
+
+    .section-heading {
+
+        font-size: 34px;
+    }
+
+    .subheading {
+
+        font-size: 24px;
+    }
+
+    .victory-section-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
 
     .controls {
 
-        justify-content:
-            flex-start;
+        width: 100%;
 
-        width:
-            100%;
+        justify-content: flex-start;
     }
-
-
-    .victory-header {
-
-        display:
-            none;
-    }
-
-
-    .victory-card {
-
-        grid-template-columns:
-            48px 1fr;
-
-        padding:
-            9px 11px;
-    }
-
-
-    .victory-card .player-title {
-
-        grid-row:
-            1 / span 4;
-
-        grid-column:
-            1;
-    }
-
-
-    .victory-card .player-name,
-    .victory-card .player-country,
-    .victory-card .player-rating,
-    .victory-card > div:last-child {
-
-        grid-column:
-            2;
-    }
-}
-
-
-@media(max-width:520px) {
-
-    .hero {
-
-        padding-top:
-            52px;
-    }
-
-
-    .hero h1 {
-
-        font-size:
-            39px;
-    }
-
-
-    .summary-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
 
     .search-box {
 
-        width:
-            100%;
+        width: 100%;
     }
 
+    .title-filter {
 
-    .controls {
-
-        flex-direction:
-            column;
-
-        align-items:
-            stretch;
+        width: 100%;
     }
 
+    .victory-card {
 
-    select {
-
-        width:
-            100%;
+        grid-template-columns:
+            45px
+            1fr
+            auto;
     }
 
+    .player-country {
 
-    .nav-button:not(.theme-button) {
+        display: none;
+    }
 
-        display:
-            none;
+    .watch-button {
+
+        font-size: 11px;
+    }
+
+    .summary-grid {
+
+        grid-template-columns: 1fr;
     }
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-
-<!-- =========================================================
-     BACKGROUND
-========================================================= -->
-
-<div class="background-art">
-
-    <div class="glow one"></div>
-
-    <div class="glow two"></div>
-
-
-    <!-- LEFT / RIGHT FLOATING CHESS PIECES -->
-
-    <div class="piece">♞</div>
-
-    <div class="piece">♜</div>
-
-    <div class="piece">♟</div>
-
-    <div class="piece">♗</div>
-
-    <div class="piece">♛</div>
-
-    <div class="piece">♚</div>
-
-    <div class="piece">♙</div>
-
-    <div class="piece">♕</div>
-
-    <div class="piece">♖</div>
-
-    <div class="piece">♘</div>
-
-    <div class="piece">♝</div>
-
-    <div class="piece">♟</div>
-
-    <div class="piece">♞</div>
-
-    <div class="piece">♜</div>
-
-    <div class="piece">♗</div>
-
-    <div class="piece">♙</div>
-
-</div>
-
+<!-- Floating chess pieces -->
+<div class="chess-piece piece-1">♜</div>
+<div class="chess-piece piece-2">♛</div>
+<div class="chess-piece piece-3">♞</div>
+<div class="chess-piece piece-4">♝</div>
+<div class="chess-piece piece-5">♟</div>
+<div class="chess-piece piece-6">♚</div>
 
 
 <!-- =========================================================
@@ -2027,57 +1411,49 @@ footer strong {
 
 <header>
 
-<div class="container navbar">
+    <nav class="navbar">
+
+        <div class="logo-area">
+
+            <!-- Replace with your logo -->
+            <img src="logo.png" alt="Mihin Weragama Logo">
+
+        </div>
 
 
-    <!-- YOUR LOGO -->
+        <ul class="nav-links">
 
-    <img
-        src="images/mihin-logo.png"
-        alt="Mihin Weragama Chess Logo"
-        class="main-logo"
-    >
+            <li>
+                <a href="#introduction">
+                    Introduction
+                </a>
+            </li>
 
+            <li>
+                <a href="#victories">
+                    Top Victories
+                </a>
+            </li>
 
-    <nav class="navigation">
+            <li>
+                <a href="#profiles">
+                    Links & Profiles
+                </a>
+            </li>
 
-
-        <a
-            href="#introduction"
-            class="nav-button"
-        >
-            Introduction
-        </a>
-
-
-        <a
-            href="#victories"
-            class="nav-button"
-        >
-            Top Victories
-        </a>
-
-
-        <a
-            href="#profiles"
-            class="nav-button"
-        >
-            Profiles
-        </a>
+        </ul>
 
 
         <button
+            class="theme-button"
             id="themeButton"
-            class="nav-button theme-button"
+            aria-label="Toggle dark mode"
+            title="Toggle dark mode"
         >
-            🌙 Dark
+            ☾
         </button>
 
-
     </nav>
-
-
-</div>
 
 </header>
 
@@ -2091,211 +1467,124 @@ footer strong {
 
 
 <!-- =========================================================
-     SECTION 01 — INTRODUCTION
+     INTRODUCTION
 ========================================================= -->
 
 <section
+    class="introduction"
     id="introduction"
-    class="hero"
 >
 
 
-<div class="container hero-grid">
+    <div class="intro-content">
 
+        <h1 class="main-heading">
 
-    <!-- LEFT SIDE -->
+            <span class="title">AIM</span>
 
-    <div class="hero-content">
-
-
-        <div class="hero-label">
-
-            Chess Portfolio • Sri Lanka
-
-        </div>
-
-
-        <h1>
-
-            <span class="hero-title">
-                AIM
-            </span>
-
-            <span class="hero-name">
+            <span class="name">
                 Mihin Mindula Weragama
             </span>
 
         </h1>
 
 
-        <div class="hero-question">
+        <div class="intro-description">
 
-            Who is Mihin Weragama?
+            <h3>
+                Who is Mihin Weragama?
+            </h3>
 
-        </div>
-
-
-        <p class="hero-text">
-
-            Replace this paragraph with your complete
-            biography, chess journey, achievements,
-            playing style and career highlights.
-
-        </p>
-
-
-        <div class="hero-question">
-
-            Bullet Career
+            <p>
+                A chess player from Sri Lanka with a strong
+                passion for competitive chess, continuous
+                improvement and achieving excellence both
+                on and off the board.
+            </p>
 
         </div>
 
 
-        <p class="hero-text">
+        <ul class="career-list">
 
-            Add your Bullet career information here,
-            including peak ratings, rankings, records
-            and notable achievements.
+            <li>
+                Arena FIDE Master
+            </li>
 
-        </p>
+            <li>
+                Competitive chess player representing Sri Lanka
+            </li>
 
+            <li>
+                FIDE Arena peak rating: 2023
+            </li>
+
+            <li>
+                FIDE Arena highest national rank: #1
+            </li>
+
+            <li>
+                Victories against titled players
+            </li>
+
+        </ul>
 
     </div>
 
 
+    <div class="intro-photo">
 
-    <!-- RIGHT SIDE — 1:1 PHOTO -->
-
-    <div class="hero-photo">
-
-
-        <!--
-
-        REPLACE THE PLACEHOLDER WITH:
-
+        <!-- Replace with your photograph -->
         <img
-            src="images/mihin-photo.jpg"
+            src="mihin-photo.jpg"
             alt="AIM Mihin Mindula Weragama"
         >
 
-        -->
-
-
-        <div class="image-placeholder">
-
-            <div>
-
-                <strong>
-                    YOUR PHOTO
-                </strong>
-
-                Replace this area with
-                your square 1:1 photograph.
-
-            </div>
-
-        </div>
-
-
     </div>
-
-
-</div>
 
 </section>
 
 
 
 <!-- =========================================================
-     SECTION 02 — TOP VICTORIES
+     TOP VICTORIES
 ========================================================= -->
 
 <section
+    class="section"
     id="victories"
 >
 
-
-<div class="container">
-
-
-    <div class="section-top">
+    <h2 class="section-heading">
+        Top Victories
+    </h2>
 
 
-        <div>
+    <div class="top-victories">
 
-            <div class="section-label">
-                Section 02
+
+        <div class="top-victory">
+
+            <div class="top-victory-title">
+                GRANDMASTER
             </div>
 
-            <h2>
-                Top Victories
-            </h2>
+            <div class="top-victory-name">
+                GM Davor Rogic
+            </div>
 
         </div>
 
 
-        <div class="section-description">
+        <div class="top-victory">
 
-            A collection of notable victories
-            from Mihin Weragama's chess career.
-
-        </div>
-
-
-    </div>
-
-
-
-    <!-- FEATURED VICTORIES -->
-
-    <div class="featured-victories">
-
-
-        <div class="featured-card">
-
-
-            <div class="featured-badge">
-                GM
+            <div class="top-victory-title">
+                GRANDMASTER
             </div>
 
-
-            <div>
-
-                <h3>
-                    GM Davor Rogic
-                </h3>
-
-                <p>
-                    Featured Victory
-                </p>
-
+            <div class="top-victory-name">
+                GM Joseph Gallagher
             </div>
-
-
-        </div>
-
-
-
-        <div class="featured-card">
-
-
-            <div class="featured-badge">
-                GM
-            </div>
-
-
-            <div>
-
-                <h3>
-                    GM Joseph Gallagher
-                </h3>
-
-                <p>
-                    Featured Victory
-                </p>
-
-            </div>
-
 
         </div>
 
@@ -2304,464 +1593,823 @@ footer strong {
 
 
 
-    <!-- =====================================================
-         SUBSECTION 01 — TITLED PLAYERS
-    ====================================================== -->
+<!-- =========================================================
+     VICTORIES AGAINST TITLED PLAYERS
+========================================================= -->
 
-    <div class="subsection">
+<div class="victory-section">
 
+    <div class="victory-section-header">
 
-        <div class="subsection-heading">
-
-
-            <h3>
-                Victories Against Titled Players
-            </h3>
+        <h3 class="subheading">
+            Victories Against Titled Players
+        </h3>
 
 
-            <div class="controls">
+        <div class="controls">
 
-
-                <!-- PLAYER SEARCH -->
-
-                <input
-                    id="playerSearch"
-                    class="search-box"
-                    type="search"
-                    placeholder="🔎 Search player name..."
-                    aria-label="Search player name"
-                >
-
-
-                <!-- TITLE FILTER -->
-
-                <select
-                    id="titleFilter"
-                    aria-label="Filter by title"
-                >
-
-                    <option value="ALL">
-                        All Titles
-                    </option>
-
-                    <option value="GM">
-                        GM
-                    </option>
-
-                    <option value="IM">
-                        IM
-                    </option>
-
-                    <option value="FM">
-                        FM
-                    </option>
-
-                    <option value="CM">
-                        CM
-                    </option>
-
-                    <option value="WGM">
-                        WGM
-                    </option>
-
-                    <option value="WIM">
-                        WIM
-                    </option>
-
-                    <option value="WFM">
-                        WFM
-                    </option>
-
-                    <option value="WCM">
-                        WCM
-                    </option>
-
-                    <option value="LM">
-                        LM
-                    </option>
-
-                    <option value="AGM">
-                        AGM
-                    </option>
-
-                </select>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- COLUMN HEADINGS -->
-
-        <div class="victory-header">
-
-            <div>
-                Title
-            </div>
-
-            <div>
-                Name / Username
-            </div>
-
-            <div>
-                Country
-            </div>
-
-            <div>
-                Rating
-            </div>
-
-            <div>
-                Game
-            </div>
-
-        </div>
-
-
-        <!-- PLAYER LIST -->
-
-        <div
-            id="titledVictories"
-            class="victory-list"
-        ></div>
-
-
-        <div
-            id="emptyMessage"
-            style="
-                display:none;
-                text-align:center;
-                padding:24px;
-                color:var(--muted);
-            "
-        >
-
-            No victories found.
-
-        </div>
-
-
-        <div class="see-more-container">
-
-
-            <button
-                id="seeMoreButton"
-                class="see-more"
+            <input
+                type="search"
+                class="search-box"
+                id="playerSearch"
+                placeholder="Search player..."
+                aria-label="Search player"
             >
 
-                See More
 
-            </button>
+            <select
+                class="title-filter"
+                id="titleFilter"
+                aria-label="Filter by title"
+            >
 
+                <option value="all">
+                    All Titles
+                </option>
+
+                <option value="GM">
+                    GM
+                </option>
+
+                <option value="IM">
+                    IM
+                </option>
+
+                <option value="FM">
+                    FM
+                </option>
+
+                <option value="CM">
+                    CM
+                </option>
+
+                <option value="WGM">
+                    WGM
+                </option>
+
+                <option value="LM">
+                    LM
+                </option>
+
+            </select>
 
         </div>
-
 
     </div>
 
 
+    <!-- HEADINGS -->
 
-    <!-- =====================================================
-         DESCRIPTION + LOGO
-    ====================================================== -->
+    <div class="victory-list-header">
 
-    <div class="subsection">
+        <div>Title</div>
 
+        <div>Name / Username</div>
 
-        <div class="description-logo">
+        <div>Country</div>
 
+        <div>Rating</div>
 
-            <div class="description-content">
-
-
-                <div class="section-label">
-                    Titled Victories
-                </div>
-
-
-                <h3>
-                    ...
-                </h3>
-
-
-                <p>
-
-                    Add your description here.
-                    This area is designed for a short
-                    explanation of your achievements.
-
-                </p>
-
-
-            </div>
-
-
-            <div class="description-image">
-
-
-                <img
-                    src="images/chess-logo.png"
-                    alt="Chess Logo"
-                >
-
-
-            </div>
-
-
-        </div>
-
+        <div>Watch Game</div>
 
     </div>
 
 
+    <!-- VICTORY LIST -->
 
-    <!-- =====================================================
-         SUBSECTION 02 — NATIONAL CHAMPIONS
-    ====================================================== -->
-
-    <div class="subsection">
-
-
-        <div class="subsection-heading">
-
-
-            <h3>
-                Victories Against National Champions
-            </h3>
-
-
-        </div>
+    <div
+        class="victory-list"
+        id="titledVictories"
+    >
 
 
         <div
-            class="victory-header"
+            class="victory-card"
+            data-title="FM"
+            data-name="Sunil Weerdjdm"
         >
 
-            <div>Title</div>
+            <div class="player-title">
+                FM
+            </div>
 
-            <div>Name / Username</div>
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
 
-            <div>Country</div>
+            <div class="player-country">
+                <span class="flag">🇺🇸</span>
+                USA
+            </div>
 
-            <div>Rating</div>
+            <div class="player-rating">
+                2345
+            </div>
 
-            <div>Game</div>
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
 
         </div>
+
 
 
         <div
-            id="nationalChampions"
-            class="victory-list"
-        ></div>
+            class="victory-card"
+            data-title="FM"
+            data-name="Sunil Weerdjdm"
+        >
 
+            <div class="player-title">
+                FM
+            </div>
 
-    </div>
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
 
+            <div class="player-country">
+                <span class="flag">🇮🇳</span>
+                IND
+            </div>
 
+            <div class="player-rating">
+                2546
+            </div>
 
-    <!-- =====================================================
-         SUBSECTION 03 — AGMs
-    ====================================================== -->
-
-    <div class="subsection">
-
-
-        <div class="subsection-heading">
-
-
-            <h3>
-                Victories Against AGMs
-            </h3>
-
-
-        </div>
-
-
-        <div class="victory-header">
-
-            <div>Title</div>
-
-            <div>Name / Username</div>
-
-            <div>Country</div>
-
-            <div>Rating</div>
-
-            <div>Game</div>
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
 
         </div>
+
 
 
         <div
-            id="agmVictories"
-            class="victory-list"
-        ></div>
+            class="victory-card"
+            data-title="FM"
+            data-name="Sunil Weerdjdm"
+        >
 
+            <div class="player-title">
+                FM
+            </div>
 
-    </div>
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
 
+            <div class="player-country">
+                <span class="flag">🇱🇰</span>
+                SRI
+            </div>
 
+            <div class="player-rating">
+                2546
+            </div>
 
-    <!-- =====================================================
-         SUBSECTION 04 — BLITZ
-    ====================================================== -->
-
-    <div class="subsection">
-
-
-        <div class="subsection-heading">
-
-
-            <h3>
-                Titled Victories in Blitz
-            </h3>
-
-
-        </div>
-
-
-        <div class="victory-header">
-
-            <div>Title</div>
-
-            <div>Name / Username</div>
-
-            <div>Country</div>
-
-            <div>Rating</div>
-
-            <div>Game</div>
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
 
         </div>
+
 
 
         <div
-            id="blitzVictories"
-            class="victory-list"
-        ></div>
+            class="victory-card"
+            data-title="FM"
+            data-name="Sunil Weerdjdm"
+        >
 
-
-    </div>
-
-
-
-    <!-- =====================================================
-         SUBSECTION 05 — SUMMARY
-    ====================================================== -->
-
-    <div class="subsection">
-
-
-        <div class="section-top">
-
-
-            <div>
-
-                <div class="section-label">
-                    Sub-Section 05
-                </div>
-
-                <h2>
-                    Summary of Titled Victories
-                </h2>
-
+            <div class="player-title">
+                FM
             </div>
 
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="player-country">
+                <span class="flag">🇮🇹</span>
+                ITA
+            </div>
+
+            <div class="player-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
 
         </div>
 
 
 
-        <div class="summary-grid">
+        <div
+            class="victory-card"
+            data-title="FM"
+            data-name="Sunil Weerdjdm"
+        >
 
-
-            <div class="summary-card">
-
-                <div class="summary-title">
-                    GM — Grandmaster
-                </div>
-
-                <div class="summary-number">
-                    05
-                </div>
-
+            <div class="player-title">
+                FM
             </div>
 
-
-            <div class="summary-card">
-
-                <div class="summary-title">
-                    LM — Lichess Master
-                </div>
-
-                <div class="summary-number">
-                    02
-                </div>
-
+            <div class="player-name">
+                Sunil Weerdjdm
             </div>
 
-
-            <div class="summary-card">
-
-                <div class="summary-title">
-                    IM — International Master
-                </div>
-
-                <div class="summary-number">
-                    03
-                </div>
-
+            <div class="player-country">
+                <span class="flag">🇷🇺</span>
+                RUS
             </div>
 
-
-            <div class="summary-card">
-
-                <div class="summary-title">
-                    FM — FIDE Master
-                </div>
-
-                <div class="summary-number">
-                    06
-                </div>
-
+            <div class="player-rating">
+                2546
             </div>
 
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
 
-            <div class="summary-card">
+        </div>
 
-                <div class="summary-title">
-                    CM — Candidate Master
-                </div>
 
-                <div class="summary-number">
-                    22
-                </div>
 
+        <div
+            class="victory-card"
+            data-title="FM"
+            data-name="Sunil Weerdjdm"
+        >
+
+            <div class="player-title">
+                FM
             </div>
 
-
-            <div class="summary-card">
-
-                <div class="summary-title">
-                    WGM — Woman Grandmaster
-                </div>
-
-                <div class="summary-number">
-                    28
-                </div>
-
+            <div class="player-name">
+                Sunil Weerdjdm
             </div>
 
+            <div class="player-country">
+                <span class="flag">🇨🇱</span>
+                CHI
+            </div>
+
+            <div class="player-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+
+        <div
+            class="victory-card"
+            data-title="FM"
+            data-name="Sunil Weerdjdm"
+        >
+
+            <div class="player-title">
+                FM
+            </div>
+
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="player-country">
+                <span class="flag">🇺🇸</span>
+                USA
+            </div>
+
+            <div class="player-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+
+        <div
+            class="victory-card"
+            data-title="FM"
+            data-name="Sunil Weerdjdm"
+        >
+
+            <div class="player-title">
+                FM
+            </div>
+
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="player-country">
+                <span class="flag">🇺🇸</span>
+                USA
+            </div>
+
+            <div class="player-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Watch Game
+            </a>
 
         </div>
 
 
     </div>
 
+
+    <div class="see-more-container">
+
+        <button
+            class="see-more"
+            id="seeMoreButton"
+        >
+            See More
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     DESCRIPTION
+========================================================= -->
+
+<div class="info-block">
+
+    <div class="info-text">
+
+        <p>
+            A collection of notable victories achieved
+            against strong and titled chess players.
+            Each game represents a different stage of
+            competitive development and practical
+            chess experience.
+        </p>
+
+    </div>
+
+
+    <div class="info-logo">
+
+        <!-- Replace with your logo -->
+        <img
+            src="victory-logo.png"
+            alt="Victory Collection Logo"
+        >
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     NATIONAL CHAMPIONS
+========================================================= -->
+
+<div class="victory-section">
+
+    <div class="victory-section-header">
+
+        <h3 class="subheading">
+            Victories Against National Champions
+        </h3>
+
+    </div>
+
+
+    <div class="victory-list-header">
+
+        <div>Title</div>
+        <div>Name / Username</div>
+        <div>Country</div>
+        <div>Rating</div>
+        <div>Watch Game</div>
+
+    </div>
+
+
+    <div class="victory-list">
+
+        <div class="victory-card">
+
+            <div class="player-title">FM</div>
+
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="player-country">
+                <span class="flag">🇺🇸</span>
+                USA
+            </div>
+
+            <div class="player-rating">
+                2345
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+        <div class="victory-card">
+
+            <div class="player-title">FM</div>
+
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="player-country">
+                <span class="flag">🇮🇳</span>
+                IND
+            </div>
+
+            <div class="player-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+        <div class="victory-card">
+
+            <div class="player-title">FM</div>
+
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="player-country">
+                <span class="flag">🇱🇰</span>
+                SRI
+            </div>
+
+            <div class="player-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     AGMS
+========================================================= -->
+
+<div class="victory-section">
+
+    <div class="victory-section-header">
+
+        <h3 class="subheading">
+            Victories Against AGMs
+        </h3>
+
+    </div>
+
+
+    <div class="victory-list-header">
+
+        <div>Title</div>
+        <div>Name / Username</div>
+        <div>Country</div>
+        <div>Rating</div>
+        <div>Watch Game</div>
+
+    </div>
+
+
+    <div class="victory-list">
+
+        <div class="victory-card">
+
+            <div class="player-title">FM</div>
+
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="player-country">
+                <span class="flag">🇺🇸</span>
+                USA
+            </div>
+
+            <div class="player-rating">
+                2345
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+        <div class="victory-card">
+
+            <div class="player-title">FM</div>
+
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="player-country">
+                <span class="flag">🇮🇳</span>
+                IND
+            </div>
+
+            <div class="player-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     BLITZ
+========================================================= -->
+
+<div class="victory-section">
+
+    <div class="victory-section-header">
+
+        <h3 class="subheading">
+            Titled Victories in Blitz
+        </h3>
+
+    </div>
+
+
+    <div class="victory-list-header">
+
+        <div>Title</div>
+        <div>Name / Username</div>
+        <div>Country</div>
+        <div>Rating</div>
+        <div>Watch Game</div>
+
+    </div>
+
+
+    <div class="victory-list">
+
+        <div class="victory-card">
+
+            <div class="player-title">FM</div>
+
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="player-country">
+                <span class="flag">🇺🇸</span>
+                USA
+            </div>
+
+            <div class="player-rating">
+                2345
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+        <div class="victory-card">
+
+            <div class="player-title">FM</div>
+
+            <div class="player-name">
+                Sunil Weerdjdm
+            </div>
+
+            <div class="player-country">
+                <span class="flag">🇮🇳</span>
+                IND
+            </div>
+
+            <div class="player-rating">
+                2546
+            </div>
+
+            <a
+                class="watch-button"
+                href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                target="_blank"
+            >
+                Watch Game
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     SUMMARY
+========================================================= -->
+
+<div class="victory-section">
+
+    <h3 class="subheading">
+        Summary of Titled Victories
+    </h3>
+
+
+    <div class="summary-grid">
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                GM (Grandmaster)
+            </div>
+
+            <div class="summary-number">
+                05
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                LM (Lichess Master)
+            </div>
+
+            <div class="summary-number">
+                02
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                IM (International Master)
+            </div>
+
+            <div class="summary-number">
+                03
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                FM (FIDE Master)
+            </div>
+
+            <div class="summary-number">
+                06
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                CM (Candidate Master)
+            </div>
+
+            <div class="summary-number">
+                22
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-title">
+                WGM (Woman Grandmaster)
+            </div>
+
+            <div class="summary-number">
+                28
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
@@ -2770,111 +2418,74 @@ footer strong {
 
 
 <!-- =========================================================
-     SECTION 03 — LINKS & PROFILES
+     LINKS & PROFILES
 ========================================================= -->
 
 <section
+    class="section"
     id="profiles"
 >
 
-
-<div class="container">
-
-
-    <div class="section-top">
-
-
-        <div>
-
-            <div class="section-label">
-                Section 03
-            </div>
-
-            <h2>
-                Links & Profiles
-            </h2>
-
-        </div>
-
-
-    </div>
-
+    <h2 class="section-heading">
+        Links & Profiles
+    </h2>
 
 
     <div class="profile-grid">
 
 
-        <div class="profile-card">
+        <a
+            class="profile-card"
+            href="#"
+            target="_blank"
+        >
 
-
-            <h3>
+            <span class="profile-name">
                 FIDE
-            </h3>
+            </span>
+
+            <span class="profile-arrow">
+                ↗
+            </span>
+
+        </a>
 
 
-            <p>
-                Official FIDE player profile.
-            </p>
+        <a
+            class="profile-card"
+            href="#"
+            target="_blank"
+        >
 
-
-            <a href="#">
-                Visit Profile →
-            </a>
-
-
-        </div>
-
-
-
-        <div class="profile-card">
-
-
-            <h3>
-                FIDE Online Arena
-            </h3>
-
-
-            <p>
-                FIDE Arena profile and
-                online chess achievements.
-            </p>
-
-
-            <a href="#">
-                Visit Profile →
-            </a>
-
-
-        </div>
-
-
-
-        <div class="profile-card">
-
-
-            <h3>
+            <span class="profile-name">
                 Lichess
-            </h3>
+            </span>
+
+            <span class="profile-arrow">
+                ↗
+            </span>
+
+        </a>
 
 
-            <p>
-                Online chess profile
-                and games.
-            </p>
+        <a
+            class="profile-card"
+            href="#"
+            target="_blank"
+        >
 
+            <span class="profile-name">
+                Chess.com
+            </span>
 
-            <a href="#">
-                Visit Profile →
-            </a>
+            <span class="profile-arrow">
+                ↗
+            </span>
 
-
-        </div>
+        </a>
 
 
     </div>
-
-
-</div>
 
 </section>
 
@@ -2889,613 +2500,155 @@ footer strong {
 
 <footer>
 
-
-<div class="container">
-
-
-    <strong>
-        AIM Mihin Mindula Weragama
-    </strong>
-
-
-    <br>
-
-
-    Chess Portfolio
-
-
-</div>
-
+    © 2026 Mihin Mindula Weragama
 
 </footer>
 
 
 
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
 
 /* =========================================================
-   TITLED VICTORY DATA
-========================================================= */
-
-const titledVictories = [
-
-    {
-        title: "FM",
-        name: "Sunil Weerdjdm",
-        country: "USA",
-        rating: "2345",
-        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
-    },
-
-    {
-        title: "FM",
-        name: "Sunil Weerdjdm",
-        country: "IND",
-        rating: "2546",
-        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
-    },
-
-    {
-        title: "FM",
-        name: "Sunil Weerdjdm",
-        country: "SRI",
-        rating: "2546",
-        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
-    },
-
-    {
-        title: "FM",
-        name: "Sunil Weerdjdm",
-        country: "ITA",
-        rating: "2546",
-        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
-    },
-
-    {
-        title: "FM",
-        name: "Sunil Weerdjdm",
-        country: "RUS",
-        rating: "2546",
-        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
-    },
-
-    {
-        title: "FM",
-        name: "Sunil Weerdjdm",
-        country: "CHI",
-        rating: "2546",
-        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
-    },
-
-    {
-        title: "FM",
-        name: "Sunil Weerdjdm",
-        country: "USA",
-        rating: "2546",
-        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
-    },
-
-    {
-        title: "FM",
-        name: "Sunil Weerdjdm",
-        country: "USA",
-        rating: "2546",
-        link: "https://www.chess.com/analysis/library/56iYv1WKGa"
-    },
-
-    {
-        title: "FM",
-        name: "Sunil Weerdjdm",
-        country: "USA",
-        rating: "2546",
-        link: ""
-    },
-
-    {
-        title: "FM",
-        name: "Sunil Weerdjdm",
-        country: "",
-        rating: "2546",
-        link: ""
-    },
-
-    {
-        title: "FM",
-        name: "Sunil Weerdjdm",
-        country: "",
-        rating: "2546",
-        link: ""
-    },
-
-    {
-        title: "FM",
-        name: "Sunil Weerdjdm",
-        country: "",
-        rating: "2546",
-        link: ""
-    }
-
-];
-
-
-/* =========================================================
-   COUNTRY FLAGS
-========================================================= */
-
-const flags = {
-
-    USA: "🇺🇸",
-
-    IND: "🇮🇳",
-
-    SRI: "🇱🇰",
-
-    ITA: "🇮🇹",
-
-    RUS: "🇷🇺",
-
-    CHI: "🇨🇳",
-
-    GER: "🇩🇪",
-
-    FRA: "🇫🇷",
-
-    ESP: "🇪🇸",
-
-    NED: "🇳🇱",
-
-    NOR: "🇳🇴",
-
-    DEN: "🇩🇰",
-
-    SWE: "🇸🇪",
-
-    AUS: "🇦🇺",
-
-    CAN: "🇨🇦",
-
-    ENG: "🏴"
-
-};
-
-
-/* =========================================================
-   CREATE VICTORY CARD
-========================================================= */
-
-function createVictoryCard(v) {
-
-
-    const flag =
-        flags[v.country] || "";
-
-
-    const button = v.link
-
-        ? `
-
-            <a
-                class="watch-game"
-                href="${v.link}"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Watch Game
-            </a>
-
-          `
-
-        : `
-
-            <span
-                style="
-                    color:var(--muted);
-                    font-size:11px;
-                "
-            >
-                No link
-            </span>
-
-          `;
-
-
-    return `
-
-        <article
-            class="victory-card"
-        >
-
-
-            <div
-                class="player-title"
-            >
-
-                ${v.title || "—"}
-
-            </div>
-
-
-            <div
-                class="player-name"
-            >
-
-                ${v.name || "Unknown"}
-
-            </div>
-
-
-            <div
-                class="player-country"
-            >
-
-                ${flag}
-                ${v.country || "—"}
-
-            </div>
-
-
-            <div
-                class="player-rating"
-            >
-
-                ${v.rating || "—"}
-
-            </div>
-
-
-            <div>
-
-                ${button}
-
-            </div>
-
-
-        </article>
-
-    `;
-}
-
-
-/* =========================================================
-   SEARCH / FILTER
-========================================================= */
-
-let showAll = false;
-
-
-function filteredVictories() {
-
-
-    const selectedTitle =
-        document
-            .getElementById(
-                "titleFilter"
-            )
-            .value;
-
-
-    const searchText =
-        document
-            .getElementById(
-                "playerSearch"
-            )
-            .value
-            .trim()
-            .toLowerCase();
-
-
-    return titledVictories.filter(
-        v => {
-
-
-            const titleMatches =
-
-                selectedTitle === "ALL" ||
-
-                v.title === selectedTitle;
-
-
-            const nameMatches =
-
-                !searchText ||
-
-                v.name
-                    .toLowerCase()
-                    .includes(searchText);
-
-
-            return (
-                titleMatches &&
-                nameMatches
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   RENDER MAIN VICTORIES
-========================================================= */
-
-function renderTitledVictories() {
-
-
-    const data =
-        filteredVictories();
-
-
-    const list =
-        document.getElementById(
-            "titledVictories"
-        );
-
-
-    const empty =
-        document.getElementById(
-            "emptyMessage"
-        );
-
-
-    const more =
-        document.getElementById(
-            "seeMoreButton"
-        );
-
-
-    if (!data.length) {
-
-
-        list.innerHTML = "";
-
-
-        empty.style.display =
-            "block";
-
-
-        more.style.display =
-            "none";
-
-
-        return;
-
-    }
-
-
-    empty.style.display =
-        "none";
-
-
-    const visible =
-        showAll
-
-            ? data
-
-            : data.slice(0,10);
-
-
-    list.innerHTML =
-
-        visible
-            .map(createVictoryCard)
-            .join("");
-
-
-    if (data.length > 10) {
-
-
-        more.style.display =
-            "inline-block";
-
-
-        more.textContent =
-
-            showAll
-
-                ? "Show Less"
-
-                : "See More";
-
-
-    } else {
-
-
-        more.style.display =
-            "none";
-
-    }
-
-}
-
-
-/* =========================================================
-   RENDER OTHER LISTS
-========================================================= */
-
-function renderList(
-    id,
-    data
-) {
-
-
-    document
-        .getElementById(id)
-        .innerHTML =
-
-        data
-            .map(createVictoryCard)
-            .join("");
-
-}
-
-
-/* =========================================================
-   SEARCH EVENT
-========================================================= */
-
-document
-    .getElementById(
-        "playerSearch"
-    )
-    .addEventListener(
-        "input",
-        () => {
-
-            showAll = false;
-
-            renderTitledVictories();
-
-        }
-    );
-
-
-/* =========================================================
-   TITLE FILTER EVENT
-========================================================= */
-
-document
-    .getElementById(
-        "titleFilter"
-    )
-    .addEventListener(
-        "change",
-        () => {
-
-            showAll = false;
-
-            renderTitledVictories();
-
-        }
-    );
-
-
-/* =========================================================
-   SEE MORE EVENT
-========================================================= */
-
-document
-    .getElementById(
-        "seeMoreButton"
-    )
-    .addEventListener(
-        "click",
-        () => {
-
-            showAll =
-                !showAll;
-
-            renderTitledVictories();
-
-        }
-    );
-
-
-/* =========================================================
-   INITIAL RENDER
-========================================================= */
-
-renderTitledVictories();
-
-
-renderList(
-    "nationalChampions",
-    titledVictories.slice(0,7)
-);
-
-
-renderList(
-    "agmVictories",
-    titledVictories.slice(0,7)
-);
-
-
-renderList(
-    "blitzVictories",
-    titledVictories.slice(0,7)
-);
-
-
-/* =========================================================
-   DARK / LIGHT MODE
+   DARK MODE
 ========================================================= */
 
 const themeButton =
-    document.getElementById(
-        "themeButton"
-    );
+    document.getElementById("themeButton");
+
+const savedTheme =
+    localStorage.getItem("mihin-theme");
 
 
-function updateThemeButton() {
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark");
+
+    themeButton.textContent = "☀";
+
+}
 
 
-    const dark =
-        document.body
-            .classList
-            .contains("dark");
+themeButton.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark");
+
+    const darkMode =
+        document.body.classList.contains("dark");
 
 
     themeButton.textContent =
+        darkMode ? "☀" : "☾";
 
-        dark
 
-            ? "☀️ Light"
+    localStorage.setItem(
+        "mihin-theme",
+        darkMode ? "dark" : "light"
+    );
 
-            : "🌙 Dark";
+});
+
+
+
+/* =========================================================
+   PLAYER SEARCH + TITLE FILTER
+========================================================= */
+
+const searchInput =
+    document.getElementById("playerSearch");
+
+const titleFilter =
+    document.getElementById("titleFilter");
+
+const victoryCards =
+    document.querySelectorAll(
+        "#titledVictories .victory-card"
+    );
+
+
+function filterVictories() {
+
+    const search =
+        searchInput.value
+            .toLowerCase()
+            .trim();
+
+    const selectedTitle =
+        titleFilter.value;
+
+
+    victoryCards.forEach(card => {
+
+        const name =
+            card.dataset.name
+                .toLowerCase();
+
+        const title =
+            card.dataset.title;
+
+
+        const matchesName =
+            name.includes(search);
+
+
+        const matchesTitle =
+            selectedTitle === "all" ||
+            title === selectedTitle;
+
+
+        if (
+            matchesName &&
+            matchesTitle
+        ) {
+
+            card.style.display = "";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
 
 }
 
 
-if (
-    localStorage.getItem(
-        "mihinTheme"
-    ) === "dark"
-) {
+searchInput.addEventListener(
+    "input",
+    filterVictories
+);
+
+titleFilter.addEventListener(
+    "change",
+    filterVictories
+);
 
 
-    document.body
-        .classList
-        .add("dark");
 
-}
+/* =========================================================
+   SEE MORE
+========================================================= */
+
+const seeMoreButton =
+    document.getElementById("seeMoreButton");
 
 
-updateThemeButton();
-
-
-themeButton.addEventListener(
+seeMoreButton.addEventListener(
     "click",
     () => {
 
-
-        document.body
-            .classList
-            .toggle("dark");
-
-
-        localStorage.setItem(
-
-            "mihinTheme",
-
-            document.body
-                .classList
-                .contains("dark")
-
-                ? "dark"
-
-                : "light"
-
+        alert(
+            "More titled victories will be added here when the complete list is available."
         );
-
-
-        updateThemeButton();
 
     }
 );
 
 </script>
 
-
 </body>
-
 </html>
