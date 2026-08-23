@@ -266,6 +266,27 @@ header {
     background: rgba(255,255,255,0.05);
 }
 
+/* =========================
+   BANNER
+   ========================= */
+
+.banner {
+    width: 100%;
+    margin: 25px 0 0;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 430px;
+    object-fit: cover;
+}
+
 main {
     width: min(1420px, 94%);
     margin: auto;
@@ -959,6 +980,11 @@ footer strong {
     .info-split {
         grid-template-columns: 1fr;
     }
+
+    .banner {
+        margin-top: 18px;
+        border-radius: 18px;
+    }
 }
 
 @media (max-width: 650px) {
@@ -1018,6 +1044,11 @@ footer strong {
     .victory-list,
     .see-more-container {
         width: 100%;
+    }
+
+    .banner {
+        margin-top: 12px;
+        border-radius: 15px;
     }
 }
 
@@ -1093,6 +1124,16 @@ footer strong {
 </header>
 
 <main>
+
+<!-- BANNER IMAGE -->
+<div class="banner">
+
+    <img
+        src="banner.png"
+        alt="Mastery Of Bullet - AIM Mihin Mindula Weragama"
+    >
+
+</div>
 
 <section
     class="hero"
