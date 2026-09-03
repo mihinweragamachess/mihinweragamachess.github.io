@@ -584,11 +584,13 @@ main {
 
     grid-template-columns:
         60px
-        minmax(150px, 1fr)
-        90px
+        minmax(110px, 1fr)
+        75px
+        75px
+        82px
         90px
         72px
-        75px
+        90px
         125px;
 
     align-items: center;
@@ -664,7 +666,16 @@ main {
     font-weight: 600;
     
     font-size: 16px;
-    
+
+    text-align: center;
+}
+
+.card-time-control,
+.card-platform {
+    color: var(--text-soft);
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
 }
 
 .card-year,
@@ -673,20 +684,6 @@ main {
     font-weight: 600;
     font-size: 15px;
     text-align: center;
-}
-
-.fide-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 18px;
-}
-
-.fide-logo {
-    width: 42px;
-    height: 18px;
-    object-fit: contain;
-    display: block;
 }
 
 .watch-button {
@@ -728,9 +725,11 @@ main {
 
     grid-template-columns:
         60px
-        minmax(150px, 1fr)
-        90px
+        minmax(110px, 1fr)
         75px
+        75px
+        82px
+        90px
         72px
         90px
         125px;
@@ -935,9 +934,13 @@ footer strong {
     .victory-header {
         grid-template-columns:
             55px
-            minmax(130px,1fr)
-            85px
+            minmax(100px,1fr)
+            70px
+            70px
             75px
+            82px
+            65px
+            82px
             115px;
     }
 
@@ -1364,19 +1367,16 @@ body:not(.dark) .subsection-title::before {
 
 
 .card-year, .card-fide { font-weight: 600; color: var(--text-main); text-align: center; }
-.fide-header { display:flex; align-items:center; justify-content:center; }
-
-
 @media (max-width: 900px) {
   .victory-list { width: 100%; }
   .victory-header { display: none; }
-  .victory-card { grid-template-columns: 60px minmax(150px,1fr) 90px 75px 72px 90px 125px !important; min-width: 900px; }
+  .victory-card { grid-template-columns: 60px minmax(110px,1fr) 75px 75px 82px 90px 72px 90px 125px !important; min-width: 900px; }
   .victory-list { overflow-x: auto; }
 }
 
 
 /* FIDE column: ocean-blue gradient */
-.fide-header, .card-fide {
+.card-fide {
     background: linear-gradient(135deg, #003b73 0%, #0077b6 48%, #00a6d6 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -1384,7 +1384,14 @@ body:not(.dark) .subsection-title::before {
     color: transparent;
     font-weight: 700;
 }
-.fide-header { text-align: center; }
+
+.fide-column-heading {
+    background: linear-gradient(135deg, #003b73 0%, #0077b6 48%, #00a6d6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
 
 /* Keep victory headings close to their bars */
 .victory-header { margin-bottom: 0; padding-bottom: 3px; }
@@ -1500,7 +1507,7 @@ body:not(.dark) .subsection-title::before {
                 color:var(--maroon);
                 font-size:21px;
             ">
-                Bullet Chess Career (2023-2026) 
+                Bullet Career
             </h3>
             
             <p style="text-align: justify;">
@@ -1735,8 +1742,10 @@ body:not(.dark) .subsection-title::before {
                 <div>Title</div>
                 <div>Name / Username</div>
                 <div>Country</div>
+                <div>Time Control</div>
+                <div>Platform</div>
                 <div>Rating</div>
-                <div class="fide-header"><img src="fide.png" alt="FIDE" class="fide-logo"></div>
+                <div class="fide-column-heading">FIDE</div>
                 <div>Year</div>
                 <div></div>
             </div>
@@ -1763,13 +1772,17 @@ body:not(.dark) .subsection-title::before {
 
                 </div>
 
+                <div class="card-time-control">Bullet</div>
+
+                <div class="card-platform">Chess.com</div>
+
                 <div class="card-rating">
                     2546
                 </div>
 
-                <div class="card-fide" data-fide="">—</div>
+                <div class="card-fide" data-fide="">2300</div>
 
-                <div class="card-year">—</div>
+                <div class="card-year">2023</div>
 
 
 
@@ -1805,6 +1818,10 @@ body:not(.dark) .subsection-title::before {
                     SRI
 
                 </div>
+
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
 
                 <div class="card-rating">
                     2546
@@ -1849,6 +1866,10 @@ body:not(.dark) .subsection-title::before {
 
                 </div>
 
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
+
                 <div class="card-rating">
                     2546
                 </div>
@@ -1891,6 +1912,10 @@ body:not(.dark) .subsection-title::before {
                     RUS
 
                 </div>
+
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
 
                 <div class="card-rating">
                     2546
@@ -1935,48 +1960,9 @@ body:not(.dark) .subsection-title::before {
 
                 </div>
 
-                <div class="card-rating">
-                    2546
-                </div>
+                <div class="card-time-control">—</div>
 
-                <div class="card-fide" data-fide="">—</div>
-
-                <div class="card-year">—</div>
-
-
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Watch Game
-                </a>
-
-            </div>
-
-            <div class="victory-card">
-
-                <div class="card-title">
-                    FM
-                </div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-
-                    <img
-                        class="flag"
-                        src="https://flagcdn.com/w40/us.png"
-                        alt="USA"
-                    >
-
-                    USA
-
-                </div>
+                <div class="card-platform">—</div>
 
                 <div class="card-rating">
                     2546
@@ -2020,6 +2006,57 @@ body:not(.dark) .subsection-title::before {
                     USA
 
                 </div>
+
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
+
+                <div class="card-rating">
+                    2546
+                </div>
+
+                <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
+
+
+
+                <a
+                    class="watch-button"
+                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Watch Game
+                </a>
+
+            </div>
+
+            <div class="victory-card">
+
+                <div class="card-title">
+                    FM
+                </div>
+
+                <div class="card-name">
+                    Sunil Weerdjdm
+                </div>
+
+                <div class="card-country">
+
+                    <img
+                        class="flag"
+                        src="https://flagcdn.com/w40/us.png"
+                        alt="USA"
+                    >
+
+                    USA
+
+                </div>
+
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
 
                 <div class="card-rating">
                     2546
@@ -2095,8 +2132,10 @@ body:not(.dark) .subsection-title::before {
                 <div>Title</div>
                 <div>Name / Username</div>
                 <div>Country</div>
+                <div>Time Control</div>
+                <div>Platform</div>
                 <div>Rating</div>
-                <div class="fide-header"><img src="fide.png" alt="FIDE" class="fide-logo"></div>
+                <div class="fide-column-heading">FIDE</div>
                 <div>Year</div>
                 <div></div>
             </div>
@@ -2122,6 +2161,10 @@ body:not(.dark) .subsection-title::before {
                     USA
 
                 </div>
+
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
 
                 <div class="card-rating">
                     2345
@@ -2166,6 +2209,10 @@ body:not(.dark) .subsection-title::before {
 
                 </div>
 
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
+
                 <div class="card-rating">
                     2546
                 </div>
@@ -2208,6 +2255,10 @@ body:not(.dark) .subsection-title::before {
                     SRI
 
                 </div>
+
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
 
                 <div class="card-rating">
                     2546
@@ -2246,8 +2297,10 @@ body:not(.dark) .subsection-title::before {
                 <div>Title</div>
                 <div>Name / Username</div>
                 <div>Country</div>
+                <div>Time Control</div>
+                <div>Platform</div>
                 <div>Rating</div>
-                <div class="fide-header"><img src="fide.png" alt="FIDE" class="fide-logo"></div>
+                <div class="fide-column-heading">FIDE</div>
                 <div>Year</div>
                 <div></div>
             </div>
@@ -2273,6 +2326,10 @@ body:not(.dark) .subsection-title::before {
                     USA
 
                 </div>
+
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
 
                 <div class="card-rating">
                     2345
@@ -2317,6 +2374,10 @@ body:not(.dark) .subsection-title::before {
 
                 </div>
 
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
+
                 <div class="card-rating">
                     2546
                 </div>
@@ -2359,6 +2420,10 @@ body:not(.dark) .subsection-title::before {
                     SRI
 
                 </div>
+
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
 
                 <div class="card-rating">
                     2546
@@ -2397,8 +2462,10 @@ body:not(.dark) .subsection-title::before {
                 <div>Title</div>
                 <div>Name / Username</div>
                 <div>Country</div>
+                <div>Time Control</div>
+                <div>Platform</div>
                 <div>Rating</div>
-                <div class="fide-header"><img src="fide.png" alt="FIDE" class="fide-logo"></div>
+                <div class="fide-column-heading">FIDE</div>
                 <div>Year</div>
                 <div></div>
             </div>
@@ -2424,6 +2491,10 @@ body:not(.dark) .subsection-title::before {
                     USA
 
                 </div>
+
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
 
                 <div class="card-rating">
                     2345
@@ -2468,6 +2539,10 @@ body:not(.dark) .subsection-title::before {
 
                 </div>
 
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
+
                 <div class="card-rating">
                     2546
                 </div>
@@ -2510,6 +2585,10 @@ body:not(.dark) .subsection-title::before {
                     SRI
 
                 </div>
+
+                <div class="card-time-control">—</div>
+
+                <div class="card-platform">—</div>
 
                 <div class="card-rating">
                     2546
