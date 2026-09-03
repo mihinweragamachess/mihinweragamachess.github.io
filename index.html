@@ -491,19 +491,14 @@ main {
 
 .subsection-title::before {
     content: "";
-
     display: inline-block;
-
-    width: 7px;
-    height: 27px;
-
-    border-radius: 10px;
-
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
     background: var(--maroon);
-
-    margin-right: 12px;
-
-    vertical-align: -4px;
+    margin-right: 11px;
+    vertical-align: 3px;
+    box-shadow: 0 0 0 2px rgba(116,31,53,.08);
 }
 
 .victory-controls {
@@ -1127,7 +1122,6 @@ body:not(.dark) .achievement-card {
         inset 0 1px 0 rgba(255,255,255,.90);
 }
 
-body:not(.dark) .hero,
 body:not(.dark) .card,
 body:not(.dark) .victory-card,
 body:not(.dark) .champion-card,
@@ -1135,6 +1129,14 @@ body:not(.dark) .profile-card,
 body:not(.dark) .stat-card,
 body:not(.dark) .achievement-card {
     background: linear-gradient(145deg, rgba(255,255,255,.91), rgba(255,248,222,.80));
+}
+
+/* Keep the Introduction itself open and clean — no rectangular panel behind it. */
+body:not(.dark) .hero {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: visible;
 }
 
 body:not(.dark) h1,
@@ -1209,7 +1211,6 @@ body:not(.dark) .chess-piece {
 }
 
 /* Subtle reflective sheen on major surfaces. */
-body:not(.dark) .hero::after,
 body:not(.dark) .card::after,
 body:not(.dark) .victory-card::after,
 body:not(.dark) .champion-card::after,
@@ -1224,7 +1225,6 @@ body:not(.dark) .achievement-card::after {
     opacity: .75;
 }
 
-body:not(.dark) .hero,
 body:not(.dark) .card,
 body:not(.dark) .victory-card,
 body:not(.dark) .champion-card,
@@ -1303,6 +1303,21 @@ body:not(.dark) .hero-title .aim {
     .hero-credentials { width: min(400px, 90vw); margin: 0 auto; }
     body:not(.dark) .hero { align-items: center; }
     body:not(.dark) .hero-photo-area { justify-content: center; }
+}
+
+/* Maroon bullet markers for Introduction subheadings too. */
+body:not(.dark) .hero-description h3 {
+    color: var(--maroon) !important;
+}
+body:not(.dark) .hero-description h3::before {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--maroon);
+    margin-right: 10px;
+    vertical-align: 3px;
 }
 </style>
 </head>
