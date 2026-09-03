@@ -1234,6 +1234,76 @@ body:not(.dark) .achievement-card {
     overflow: hidden;
 }
 
+
+/* =========================================================
+   INTRODUCTION REFINEMENT — PHOTO + AIM CERTIFICATE
+   ========================================================= */
+body:not(.dark) .hero { align-items: start; }
+body:not(.dark) .hero-content { align-self: start; padding-top: 0; }
+body:not(.dark) .hero-description {
+    max-width: none;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+}
+body:not(.dark) .hero-description p { max-width: none; text-align: justify; text-justify: inter-word; }
+body:not(.dark) .hero-photo-area { align-self: start; justify-content: flex-end; align-items: flex-start; }
+.hero-credentials {
+    width: min(470px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+}
+.hero-credentials .hero-photo { width: 100%; aspect-ratio: 1 / 1; display: block; object-fit: cover; }
+.certificate-card {
+    width: 100%;
+    padding: 12px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.48);
+    border: 1px solid rgba(112,77,12,0.18);
+    box-shadow: 0 8px 24px rgba(70,45,5,0.10);
+}
+.aim-certificate {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 210 / 297;
+    object-fit: contain;
+    display: block;
+    border-radius: 9px;
+    background: #fff;
+}
+/* Rich dark-gold heading treatment, kept lightweight for smooth scrolling. */
+body:not(.dark) h1,
+body:not(.dark) h2,
+body:not(.dark) h3,
+body:not(.dark) .section-title,
+body:not(.dark) .hero-title,
+body:not(.dark) .name,
+body:not(.dark) .headline,
+body:not(.dark) .stat-number {
+    background: linear-gradient(100deg, #5f3d06 0%, #8b6110 28%, #c69a32 50%, #8a5d0a 72%, #563603 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: none;
+}
+body:not(.dark) .hero-title .aim {
+    background: linear-gradient(100deg, #4e2d03 0%, #8a5a08 45%, #b98216 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+@media (max-width: 900px) {
+    .hero-credentials { width: min(400px, 90vw); margin: 0 auto; }
+    body:not(.dark) .hero { align-items: center; }
+    body:not(.dark) .hero-photo-area { justify-content: center; }
+}
 </style>
 </head>
 
@@ -1360,11 +1430,21 @@ body:not(.dark) .achievement-card {
 
     <div class="hero-photo-area">
 
-        <img
-            class="hero-photo"
-            src="dp.png"
-            alt="AIM Mihin Mindula Weragama"
-        >
+        <div class="hero-credentials">
+            <img
+                class="hero-photo"
+                src="dp.png"
+                alt="AIM Mihin Mindula Weragama"
+            >
+
+            <div class="certificate-card">
+                <img
+                    class="aim-certificate"
+                    src="aim-certificate.png"
+                    alt="Arena International Master certificate"
+                >
+            </div>
+        </div>
 
     </div>
 
