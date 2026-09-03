@@ -329,7 +329,11 @@ main {
 }
 
 .hero-title .aim {
-    color: var(--maroon);
+    background: linear-gradient(135deg, #a40f31 0%, #d3264a 45%, #5b1025 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .hero-title .name {
@@ -663,6 +667,22 @@ main {
     
 }
 
+.card-year,
+.card-fide {
+    color: var(--text-soft);
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+}
+
+.fide-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+}
+
+
 .watch-button {
     display: inline-flex;
 
@@ -695,12 +715,17 @@ main {
 }
 
 .victory-header {
+    width: min(100%, 1120px);
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
 
     grid-template-columns:
         60px
         minmax(150px, 1fr)
-        95px
+        90px
+        75px
+        72px
         90px
         125px;
 
@@ -723,7 +748,7 @@ main {
        Keep headings aligned with the shorter,
        centered victory bars.
     */
-    width: min(100%, 850px);
+    width: min(100%, 1120px);
     margin-left: auto;
     margin-right: auto;
 }
@@ -733,7 +758,7 @@ main {
 
     margin-top: 20px;
 
-    width: min(100%, 850px);
+    width: min(100%, 1120px);
     margin-left: auto;
     margin-right: auto;
 }
@@ -1301,6 +1326,13 @@ body:not(.dark) .hero-title .aim {
     color: transparent;
 }
 @media (max-width: 900px) {
+    .victory-list, .victory-header {
+        min-width: 900px;
+    }
+    .victory-list {
+        overflow-x: auto;
+    }
+
     .hero-credentials { width: min(400px, 90vw); margin: 0 auto; }
     body:not(.dark) .hero { align-items: center; }
     body:not(.dark) .hero-photo-area { justify-content: center; }
@@ -1334,15 +1366,23 @@ body:not(.dark) .subsection-title::before {
 }
 
 
-.fide-logo { width: 42px; height: 28px; object-fit: contain; vertical-align: middle; }
-.card-year, .card-fide { font-weight: 600; color: var(--text-main); text-align: center; }
+.fide-header,
+.card-fide {
+    background: linear-gradient(135deg, #0077b6 0%, #00a6d6 48%, #005f9e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: 700;
+}
+.card-year, .card-fide { font-weight: 600; font-size: 16px; text-align: center; }
 .fide-header { display:flex; align-items:center; justify-content:center; }
 
 
 @media (max-width: 900px) {
   .victory-list { width: 100%; }
   .victory-header { display: none; }
-  .victory-card { grid-template-columns: 60px minmax(140px,1fr) 90px 75px 72px 90px 110px !important; min-width: 720px; }
+  .victory-card { grid-template-columns: 60px minmax(150px,1fr) 90px 75px 72px 90px 125px !important; min-width: 900px; }
   .victory-list { overflow-x: auto; }
 }
 
@@ -1664,9 +1704,6 @@ body:not(.dark) .subsection-title::before {
             <div class="filter-wrapper">
                 <select class="filter-select" id="yearFilter" onchange="filterVictories()">
                     <option value="all">All Years</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
                 </select>
             </div>
 
@@ -1686,63 +1723,13 @@ body:not(.dark) .subsection-title::before {
         </div>
 
         <div class="victory-header">
-
-            <div>Title</div>
-            <div>Name / Username</div>
-            <div>Country</div>
-            <div>Rating</div>
-            <div>Year</div>
-            <div class="fide-header"><img src="https://upload.wikimedia.org/wikipedia/en/8/84/FIDE_logo.svg" alt="FIDE" class="fide-logo"></div>
-            <div></div>
-
-        </div>
-
-        <div
-            class="victory-list"
-            id="titledVictoryList"
-        >
-
-            <div class="victory-card">
-
-                <div class="card-title">
-                    FM
-                </div>
-
-                <div class="card-name">
-                    Sunil Weerdjdm
-                </div>
-
-                <div class="card-country">
-
-                    <img
-                        class="flag"
-                        src="https://flagcdn.com/w40/us.png"
-                        alt="USA"
-                    >
-
-                    USA
-
-                </div>
-
-                <div class="card-rating">
-                    2345
-                </div>
-
-                <div class="card-year">—</div>
-
-                <div class="card-fide" data-fide="">—</div>
-
-
-
-                <a
-                    class="watch-button"
-                    href="https://www.chess.com/analysis/library/56iYv1WKGa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Watch Game
-                </a>
-
+                <div>Title</div>
+                <div>Name / Username</div>
+                <div>Country</div>
+                <div>Rating</div>
+                <div class="fide-header">FIDE</div>
+                <div>Year</div>
+                <div></div>
             </div>
 
             <div class="victory-card">
@@ -1771,9 +1758,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -1814,9 +1801,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -1857,9 +1844,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -1900,9 +1887,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -1943,9 +1930,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -1986,9 +1973,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -2029,9 +2016,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -2091,13 +2078,13 @@ body:not(.dark) .subsection-title::before {
         <div class="victory-list">
 
             <div class="victory-header">
-
                 <div>Title</div>
                 <div>Name / Username</div>
                 <div>Country</div>
                 <div>Rating</div>
+                <div class="fide-header">FIDE</div>
+                <div>Year</div>
                 <div></div>
-
             </div>
 
             <div class="victory-card">
@@ -2126,9 +2113,9 @@ body:not(.dark) .subsection-title::before {
                     2345
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -2169,9 +2156,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -2212,9 +2199,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -2242,13 +2229,13 @@ body:not(.dark) .subsection-title::before {
         <div class="victory-list">
 
             <div class="victory-header">
-
                 <div>Title</div>
                 <div>Name / Username</div>
                 <div>Country</div>
                 <div>Rating</div>
+                <div class="fide-header">FIDE</div>
+                <div>Year</div>
                 <div></div>
-
             </div>
 
             <div class="victory-card">
@@ -2277,9 +2264,9 @@ body:not(.dark) .subsection-title::before {
                     2345
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -2320,9 +2307,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -2363,9 +2350,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -2393,13 +2380,13 @@ body:not(.dark) .subsection-title::before {
         <div class="victory-list">
 
             <div class="victory-header">
-
                 <div>Title</div>
                 <div>Name / Username</div>
                 <div>Country</div>
                 <div>Rating</div>
+                <div class="fide-header">FIDE</div>
+                <div>Year</div>
                 <div></div>
-
             </div>
 
             <div class="victory-card">
@@ -2428,9 +2415,9 @@ body:not(.dark) .subsection-title::before {
                     2345
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -2471,9 +2458,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
@@ -2514,9 +2501,9 @@ body:not(.dark) .subsection-title::before {
                     2546
                 </div>
 
-                <div class="card-year">—</div>
-
                 <div class="card-fide" data-fide="">—</div>
+
+                <div class="card-year">—</div>
 
 
 
