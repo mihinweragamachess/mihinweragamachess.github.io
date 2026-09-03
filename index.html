@@ -1703,9 +1703,6 @@ body:not(.dark) .subsection-title::before {
             <div class="filter-wrapper">
                 <select class="filter-select" id="yearFilter" onchange="filterVictories()">
                     <option value="all">All Years</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
                 </select>
             </div>
 
@@ -1724,13 +1721,15 @@ body:not(.dark) .subsection-title::before {
 
         </div>
 
-        <div class="victory-header">
+        <div class="victory-list" id="titledVictoryList">
+
+            <div class="victory-header">
                 <div>Title</div>
                 <div>Name / Username</div>
                 <div>Country</div>
                 <div>Rating</div>
                 <div>Year</div>
-                <div>FIDE</div>
+                <div class="fide-header"><img src="fide.png" alt="" class="fide-logo" onerror="this.style.visibility='hidden'"></div>
                 <div></div>
             </div>
 
@@ -2037,6 +2036,8 @@ body:not(.dark) .subsection-title::before {
 
         </div>
 
+                </div>
+
         <div class="see-more-container">
 
             <button
@@ -2085,7 +2086,7 @@ body:not(.dark) .subsection-title::before {
                 <div>Country</div>
                 <div>Rating</div>
                 <div>Year</div>
-                <div class="fide-header"><img src="fide-logo.png" alt="" class="fide-logo" onerror="this.style.visibility='hidden'"></div>
+                <div class="fide-header"><img src="fide.png" alt="" class="fide-logo" onerror="this.style.visibility='hidden'"></div>
                 <div></div>
             </div>
 
@@ -2236,7 +2237,7 @@ body:not(.dark) .subsection-title::before {
                 <div>Country</div>
                 <div>Rating</div>
                 <div>Year</div>
-                <div class="fide-header"><img src="fide-logo.png" alt="" class="fide-logo" onerror="this.style.visibility='hidden'"></div>
+                <div class="fide-header"><img src="fide.png" alt="" class="fide-logo" onerror="this.style.visibility='hidden'"></div>
                 <div></div>
             </div>
 
@@ -2387,7 +2388,7 @@ body:not(.dark) .subsection-title::before {
                 <div>Country</div>
                 <div>Rating</div>
                 <div>Year</div>
-                <div class="fide-header"><img src="fide-logo.png" alt="" class="fide-logo" onerror="this.style.visibility='hidden'"></div>
+                <div class="fide-header"><img src="fide.png" alt="" class="fide-logo" onerror="this.style.visibility='hidden'"></div>
                 <div></div>
             </div>
 
